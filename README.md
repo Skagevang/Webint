@@ -1,3 +1,3 @@
 # Webint
 
-Please put "active1000" in the same folder with the codes.
+Please put "active1000" in the same folder with the codes to run test.py.
