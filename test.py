@@ -1,4 +1,5 @@
 from data import *
+from content import *
 
 print("Started. It may take some time.")
 print("===========")
@@ -31,3 +32,14 @@ print(dataset.location)
 print("Evaluate:")
 pred=dataset.click_matrix
 dataset.evaluate(pred)
+
+print("===========")
+
+print("Content-based representation:")
+content_based=content(dataset.data,dataset.question,dataset.location)
+category_rep=content_based.representation('category')
+title_rep=content_based.representation('title')
+print('The shape of category representation:')
+print(category_rep.shape)
+print('The shape of title representation:')
+print(title_rep.shape)
