@@ -2,7 +2,7 @@ import os
 import json
 import pandas as pd
 import numpy as np
-from sklearn.metrics import mean_squared_error,recall_score
+from sklearn.metrics import mean_squared_error,recall_score,precision_score
 
 class data:
 
@@ -75,19 +75,21 @@ class data:
 		self.key = np.zeros(self.click_matrix.shape)
 		location = np.zeros(self.click_matrix.shape)
 		for user in range(self.click_matrix.shape[0]):
-			size = int(len(self.click_matrix[user, :].nonzero()[0]) * fraction)
-			test_ratings = np.random.choice(self.click_matrix[user, :].nonzero()[0], 
+			size = int(self.click_matrix.shape[1] * fraction)
+			test_ratings = np.random.choice(range(self.click_matrix.shape[1]), 
 											size=size, 
 											replace=False)
 			self.question[user, test_ratings] = -1
 			self.key[user, test_ratings] = self.click_matrix[user, test_ratings]
 			location[user, test_ratings] = 1
+
 		self.location=location.nonzero()
 
 	def evaluate(self,pred):
 		pred = pred[self.location].flatten()
 		key = self.key[self.location].flatten()
 		print("MSE is {:.4f}".format(mean_squared_error(pred, key)))
+		print("Precision is {:.4f}".format(precision_score(key, pred)))
 		print("Recall is {:.4f}".format(recall_score(key, pred)))
 
 	def show_statistics(self):
@@ -107,58 +109,3 @@ class data:
 		user_df = df.groupby(['userId']).size().reset_index(name='counts')
 		print("Describe by user:")
 		print(user_df.describe())
-
-	# def remove_nan(self,category="userId"):
-	# 	"""
-	# 	'nan' values removed according to given category
-	# 	parameters: "all" or category's name or list
-	# 	stored in self.data
-	# 	type: pandas
-	# 	"""
-	# 	if category=="all":
-	# 		self.data=self.origin_data.dropna(how="any")
-	# 		self.status="all none removed"
-	# 	elif type(category)==str:
-	# 		self.data = self.origin_data[self.origin_data[category].notna()]
-	# 		self.status=category+" removed"
-	# 	else:
-	# 		self.data=self.origin_data.dropna(how="any",subset=category)
-	# 		self.status=", ".join(category)+" removed"
-
-
-
-	# def gen_click_cum_matrix(self):
-	# 	"""
-	# 	generate accumulated click matrix based on self.data
-	# 	stored in self.click_cum_matrix
-	# 	type: numpy.arrays
-	# 	"""
-	# 	df=self.data[['userId','documentId']]
-	# 	df["click"]=np.ones(self.data.shape[0])
-	# 	df=df.groupby(['userId','documentId'],as_index=False).sum()
-	# 	n_users = df['userId'].nunique()
-	# 	n_items = df['documentId'].nunique()
-	# 	df_merge=self.numbering(df)
-	# 	df_ext = df_merge[['uid', 'tid', 'click']]
-	# 	self.click_cum_matrix = np.zeros((n_users, n_items))
-	# 	for row in df_ext.itertuples():
-	# 		self.click_cum_matrix[row[1]-1, row[2]-1] = row[3]
-	# 	return df_merge
-
-	# def gen_time_matrix(self):
-	# 	"""
-	# 	generate activetime matrix based on self.data
-	# 	stored in self.time_matrix
-	# 	type: numpy.arrays
-	# 	"""
-	# 	if 'activeTime' not in self.status:
-	# 		raise("remove nan values in activeTime first!")
-	# 	df=self.data[['userId','documentId','activeTime']].groupby(['userId','documentId'],as_index=False).sum()
-	# 	n_users = df['userId'].nunique()
-	# 	n_items = df['documentId'].nunique()
-	# 	df_merge=self.numbering(df)
-	# 	df_ext = df_merge[['uid', 'tid', 'activeTime']]
-	# 	self.time_matrix = np.zeros((n_users, n_items))
-	# 	for row in df_ext.itertuples():
-	# 		self.time_matrix[row[1]-1, row[2]-1] = row[3] 
-	# 	return df_merge

@@ -222,7 +222,7 @@ if __name__ == '__main__':
     print("Basic statistics of the dataset...")
     statistics(df)
     
-    ###### Recommendations based on Collaborative Filtering (Matrix Factorization) #######
+    ##### Recommendations based on Collaborative Filtering (Matrix Factorization) #######
     print("Recommendation based on MF...")
     collaborative_filtering(df)
     
