@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import linear_kernel
+from sklearn.metrics.pairwise import cosine_similarity
 
 class content:
 
@@ -36,9 +36,10 @@ class content:
 		df_click['click']=np.ones(df_click.shape[0])
 		df_click=df_click.groupby(['uid','tid'],as_index=False).sum()
 		click=np.zeros((df_click['uid'].nunique(),df_click['tid'].nunique()))
+		click.fill(-1)
 		for row in df_click.itertuples():
 			click[row[1]-1,row[2]-1]=row[3]
-		click[location]=-1
+		click[location]=0
 		return np.transpose(click)
 
 	def active_time(self,df,location):
@@ -46,17 +47,18 @@ class content:
 		df_time=df_time.fillna(0)
 		df_time=df_time.groupby(['uid','tid'],as_index=False).sum()
 		active_time=np.zeros((df_time['uid'].nunique(),df_time['tid'].nunique()))
+		active_time.fill(-1)
 		for row in df_time.itertuples():
 			active_time[row[1]-1,row[2]-1]=row[3]
-		active_time[location]=-1
+		active_time[location]=0
 		return np.transpose(active_time)
 
 	def nearest(self,rep):
-		score = linear_kernel(rep, rep)
+		cosine_sim = cosine_similarity(rep)
 		prediction=np.zeros(self.question.shape)
 		for uid, tid in zip(self.location[0],self.location[1]):
-			yes=score[tid][(self.question[uid]==1).nonzero()].sum()
-			no=score[tid][(self.question[uid]==0).nonzero()].sum()
+			yes=cosine_sim[tid][(self.question[uid]==1).nonzero()].sum()
+			no=cosine_sim[tid][(self.question[uid]==0).nonzero()].sum()
 			if yes>no:
 				prediction[uid,tid]=1
 		return prediction
