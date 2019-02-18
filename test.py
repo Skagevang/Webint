@@ -54,22 +54,22 @@ print(time_rep.shape)
 
 print("===========")
 
-print("Content-based nearest recommendation with category matrix (about 10 min):")
+print("Content-based nearest recommendation with category matrix (about 30s):")
 pred=content_based.predict(category_rep, method='nearest')
 dataset.evaluate(pred)
 print("===========")
 
-print("Content-based nearest recommendation with title matrix (about 10 min):")
+print("Content-based nearest recommendation with title matrix (about 30s):")
 pred=content_based.predict(title_rep, method='nearest')
 dataset.evaluate(pred)
 print("===========")
 
-print("Content-based nearest recommendation with click matrix (about 10 min):")
+print("Content-based nearest recommendation with click matrix (about 30s):")
 pred=content_based.predict(click_rep, method='nearest')
 dataset.evaluate(pred)
 print("===========")
 
-print("Content-based nearest recommendation with active time matrix (about 10 min):")
+print("Content-based nearest recommendation with active time matrix (about 30s):")
 pred=content_based.predict(time_rep, method='nearest')
 dataset.evaluate(pred)
 print("===========")

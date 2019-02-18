@@ -55,12 +55,12 @@ class content:
 
 	def nearest(self,rep):
 		cosine_sim = cosine_similarity(rep)
-		prediction=np.zeros(self.question.shape)
-		for uid, tid in zip(self.location[0],self.location[1]):
-			yes=cosine_sim[tid][(self.question[uid]==1).nonzero()].sum()
-			no=cosine_sim[tid][(self.question[uid]==0).nonzero()].sum()
-			if yes>no:
-				prediction[uid,tid]=1
+		question=self.question.copy()
+		question[(question==0).nonzero()]=-1
+		question[self.location]=0
+		score=np.dot(question,cosine_sim)
+		prediction=np.zeros(question.shape)
+		prediction[(score>0).nonzero()]=1
 		return prediction
 
 	def bayes(self):
