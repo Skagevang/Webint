@@ -20,33 +20,21 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 
-def traverse_dir(rootDir, level=2):
-    dir_list = []
-    print ">>>",rootDir
-    for lists in os.listdir(rootDir):
-        path = os.path.join(rootDir, lists)
-        if level == 1:
-            dir_list.append(path)
-        else:
-            if os.path.isdir(path):
-                temp_list = traverse_dir(path, level)
-                dir_list.extend(temp_list)
-            else:
-                dir_list.append(path)
-    return dir_list
-
-def load_data(rootpath, flist):
+def read_data(path):
     """
-        Load events from files and convert to dataframe.
+    read original data
+    stored in self.origin_data
+    type: pandas
     """
-    map_lst = []
-    for f in flist:
-        fname = os.path.join(rootpath, f)
-        for line in open(fname):
-            obj = json.loads(line.strip())
-            if not obj is None:
-                map_lst.append(obj)
-    return pd.DataFrame(map_lst)
+    map_lst=[]
+    for f in os.listdir(path):
+        file_name=os.path.join(path,f)
+        if os.path.isfile(file_name):
+            for line in open(file_name):
+                obj = json.loads(line.strip())
+                if not obj is None:
+                    map_lst.append(obj)
+    return pd.DataFrame(map_lst)  
 
 def statistics(df):
     """
@@ -122,6 +110,7 @@ def evaluate(pred, actual, k):
             tp += 1.
             arhr += 1./float(p.index(t) + 1.)
     recall = tp / float(total_num)
+    print(zip(pred,actual))
     print("Recall@{} is {:.4f}".format(k, recall))
     print("ARHR@{} is {:.4f}".format(k, arhr))
     
@@ -152,8 +141,8 @@ def content_processing(df):
     
     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
     
-    print("Similarity Matrix:")
-    print(cosine_sim[:4, :4])
+    # print("Similarity Matrix:")
+    # print(cosine_sim[:4, :4])
     return cosine_sim, df
 
 def content_recommendation(df, k=20):
@@ -163,7 +152,7 @@ def content_recommendation(df, k=20):
     cosine_sim, df = content_processing(df)
     df = df[['userId','time', 'tid', 'title', 'category']]
     df.sort_values(by=['userId', 'time'], ascending=True, inplace=True)
-    print(df[:20]) # see how the dataset looks like
+    # print(df[:20]) # see how the dataset looks like
     pred, actual = [], []
     puid, ptid1, ptid2 = None, None, None
     for row in df.itertuples():
@@ -214,17 +203,15 @@ def plot_learning_curve(iter_array, model):
     
 
 if __name__ == '__main__':
-    fpath = '../active1000'
-    flist = traverse_dir(fpath)
-    df = load_data(fpath, flist)
+    df=read_data("active1000")
     
     ###### Get Statistics from dataset ############
     print("Basic statistics of the dataset...")
-    statistics(df)
+    # statistics(df)
     
-    ##### Recommendations based on Collaborative Filtering (Matrix Factorization) #######
-    print("Recommendation based on MF...")
-    collaborative_filtering(df)
+    # ##### Recommendations based on Collaborative Filtering (Matrix Factorization) #######
+    # print("Recommendation based on MF...")
+    # collaborative_filtering(df)
     
     ###### Recommendations based on Content-based Method (Cosine Similarity) ############
     print("Recommendation based on content-based method...")

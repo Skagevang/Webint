@@ -23,9 +23,6 @@ print(dataset.click_matrix[:5,:5])
 print("Overview of the question matrix:")
 print(dataset.question[:5,:5])
 
-print("Overview of the key matrix:")
-print(dataset.key[:5,:5])
-
 print("See the location of the questions:")
 print(dataset.location)
 
@@ -37,7 +34,7 @@ print("===========")
 
 print("Content-based representation:")
 
-content_based=content(dataset.data,dataset.question,dataset.location)
+content_based=content(dataset.data,dataset.question,dataset.click_matrix,dataset.location,dataset.counter_location)
 category_rep=content_based.representation('category')
 title_rep=content_based.representation('title')
 click_rep=content_based.representation('click')

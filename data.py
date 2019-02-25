@@ -2,7 +2,7 @@ import os
 import json
 import pandas as pd
 import numpy as np
-from sklearn.metrics import mean_squared_error,recall_score,precision_score
+from sklearn.metrics import mean_squared_error,recall_score,precision_score,f1_score,confusion_matrix
 
 class data:
 
@@ -62,8 +62,9 @@ class data:
 		df_merge=self.numbering(df)
 		df_ext = df_merge[['uid', 'tid']]
 		self.click_matrix = np.zeros((n_users, n_items))
+		self.click_matrix.fill(-1)
 		for row in df_ext.itertuples():
-			self.click_matrix[row[1]-1, row[2]-1] = 1.0
+			self.click_matrix[row[1]-1, row[2]-1] = 1
 
 		self.data=pd.merge(self.origin_data,df_merge[['userId','documentId','uid','tid']],on=['userId','documentId'],how='outer').sort_values(by=['userId','time'])
 
@@ -72,25 +73,25 @@ class data:
 		Erase 20% values from the click matrix, in order to do testing.
 		"""
 		self.question = self.click_matrix.copy()
-		self.key = np.zeros(self.click_matrix.shape)
-		location = np.zeros(self.click_matrix.shape)
 		for user in range(self.click_matrix.shape[0]):
 			size = int(self.click_matrix.shape[1] * fraction)
 			test_ratings = np.random.choice(range(self.click_matrix.shape[1]), 
 											size=size, 
 											replace=False)
-			self.question[user, test_ratings] = -1
-			self.key[user, test_ratings] = self.click_matrix[user, test_ratings]
-			location[user, test_ratings] = 1
-
-		self.location=location.nonzero()
+			self.question[user, test_ratings] = 0
+		self.location=(self.question==0).nonzero()
+		self.counter_location=self.question.nonzero()
 
 	def evaluate(self,pred):
 		pred = pred[self.location].flatten()
-		key = self.key[self.location].flatten()
-		print("MSE is {:.4f}".format(mean_squared_error(pred, key)))
+		key = self.click_matrix[self.location].flatten()
+		print("MSE is {:.4f}".format(mean_squared_error(key, pred)))
 		print("Precision is {:.4f}".format(precision_score(key, pred)))
 		print("Recall is {:.4f}".format(recall_score(key, pred)))
+		print("F1 score is {:.4f}".format(f1_score(key,pred)))
+		print("Prediction: Negative  Positive")
+		print("||Not Read:{}".format(confusion_matrix(key,pred)[0]))
+		print("||||||Read:{}".format(confusion_matrix(key,pred)[1]))
 
 	def show_statistics(self):
 		"""
