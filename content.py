@@ -42,6 +42,38 @@ class content:
 		tfidf_matrix = tf.fit_transform(df_item['category'])
 		return tfidf_matrix
 
+	def TFIDF_user_category(self,df):
+		df_item=df[['uid','tid','category']]
+		df_item['category'] = df_item['category'].str.split('|')
+		df_item['category'] = df_item['category'].fillna("").astype('str')
+		df_item.sort_values(by=['uid','tid','category'], ascending=True, inplace=True)
+		user_category=[]
+		last_uid=-1
+		last_category=[]
+		for row in df_item.itertuples():
+			uid=row[1]
+			if uid!=last_uid:
+				user_category.append(last_category)
+				if type(row[3])==list:
+					last_category=row[3]
+				else:
+					last_category=[row[3]]
+			else:
+				if type(row[3])==list:
+					if row[2]==last_tid and last_category[-1]=="":
+						last_category=last_category[:-1]
+					last_category.extend(row[2])
+				else:
+					last_category.append(row[2])
+			last_uid=uid
+			last_tid=row[2]
+		user_category=user_category.append(last_category)[1:]
+		
+		# generate TF-IDF matrix 
+		tf = TfidfVectorizer(ngram_range=(1,2),min_df=0)
+		tfidf_matrix = tf.fit_transform(user_category)
+		return np.transpose(tfidf_matrix)
+
 	def TFIDF_title(self,df,min_df=2):
 		df_item=df[['tid','title']]
 		df_item['title'] = df_item['title'].fillna("").astype('str')
@@ -73,8 +105,13 @@ class content:
 		active_time[location]=0
 		return np.transpose(active_time)
 
-	def nearest(self,rep):
-		cosine_sim = cosine_similarity(rep)
+	def nearest(self,rep,list=False):
+		if list:
+			cosine_sim=cosine_similarity(rep[0])
+			for r in rep[1:]:
+				cosine_sim+=cosine_similarity(r)
+		else:
+			cosine_sim = cosine_similarity(rep)
 		
 		num1=(self.question==1).sum(1).reshape(-1,1)
 		num1[(num1==0).nonzero()]=1
@@ -92,12 +129,38 @@ class content:
 		prediction[(score>0).nonzero()]=1
 		return prediction
 
-	def bayes(self):
-		pass
+	def user_nearest(self,rep,list=False):
+		if list:
+			cosine_sim=cosine_similarity(np.transpose(rep[0]))
+			for r in rep[1:]:
+				cosine_sim+=cosine_similarity(np.transpose(r))
+		else:
+			cosine_sim = cosine_similarity(np.transpose(rep))
+
+		question=np.transpose(self.question)
+		
+		num1=(question==1).sum(1).reshape(-1,1)
+		num1[(num1==0).nonzero()]=1
+		num2=(question==-1).sum(1).reshape(-1,1)
+		num2[(num2==0).nonzero()]=1
+
+		read=(question==1)/num1
+		unread=(question==-1)/num2
+		num=read+unread
+
+		score=np.dot(question*num,cosine_sim)
+
+		prediction=np.zeros(question.shape)
+		prediction.fill(-1)
+		prediction[(score>0).nonzero()]=1
+		return np.transpose(prediction)
+
 
 	def representation(self, method='click'):
 		if method=="category":
 			rep=self.TFIDF_category(self.data)
+		elif method=="user-category":
+			rep=self.TFIDF_user_category(self.data)
 		elif method=="title":
 			rep=self.TFIDF_title(self.data)
 		elif method=="click":
@@ -111,8 +174,12 @@ class content:
 	def predict(self, rep, method='nearest'):
 		if method=="nearest":
 			return self.nearest(rep)
-		elif method=="bayes":
-			pass
+		elif method=="nearest-list":
+			return self.nearest(rep,True)
+		elif method=="user-nearest":
+			return self.user_nearest(rep)
+		elif method=="user-nearest-list":
+			return self.nearest(rep,True)
 
 	def evaluate(self,pred,method):
 		if method=="error":

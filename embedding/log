@@ -1,228 +1,228 @@
-Testing err 1.0143704414367676
+Testing err 1.0145773887634277
 
 Evaluation Scores:
-Hit: 0.0638, Hit+Rank: 0.0640
-MSE: 0.6676, Precision: 0.1498, Recall: 0.8553, F1: 0.2549
+Hit: 0.0638, Hit+Rank: 0.0633
+MSE: 0.6416, Precision: 0.1547, Recall: 0.8463, F1: 0.2616
 Prediction: Negative  Positive
-||Not Read:[3272942  659251]
-||||||Read:[ 19656 116151]
+||Not Read:[3299974  631474]
+||||||Read:[ 20987 115565]
 
 iter  1
-Training err 0.7559928830314733
-Testing err 0.46644991636276245
+Training err 0.7587292676076949
+Testing err 0.4690871238708496
 
 Evaluation Scores:
-Hit: 0.1491, Hit+Rank: 0.1529
-MSE: 0.3648, Precision: 0.2190, Recall: 0.6748, F1: 0.3307
+Hit: 0.1560, Hit+Rank: 0.1611
+MSE: 0.3667, Precision: 0.2199, Recall: 0.6794, F1: 0.3323
 Prediction: Negative  Positive
-||Not Read:[3605351  326842]
-||||||Read:[44166 91641]
+||Not Read:[3602295  329153]
+||||||Read:[43772 92780]
 
 iter  2
-Training err 0.3474773126390745
-Testing err 0.24947552382946014
+Training err 0.35405679703133663
+Testing err 0.25409916043281555
 
 Evaluation Scores:
-Hit: 0.1547, Hit+Rank: 0.1626
-MSE: 0.1365, Precision: 0.2019, Recall: 0.0074, F1: 0.0144
+Hit: 0.1597, Hit+Rank: 0.1690
+MSE: 0.1378, Precision: 0.2557, Recall: 0.0139, F1: 0.0264
 Prediction: Negative  Positive
-||Not Read:[3928196    3997]
-||||||Read:[134796   1011]
+||Not Read:[3925918    5530]
+||||||Read:[134652   1900]
 
 iter  3
-Training err 0.22016294061575295
-Testing err 0.19699439406394958
+Training err 0.2339601105301635
+Testing err 0.19947673380374908
 
 Evaluation Scores:
-Hit: 0.1588, Hit+Rank: 0.1725
-MSE: 0.1336, Precision: 0.1875, Recall: 0.0002, F1: 0.0005
+Hit: 0.1652, Hit+Rank: 0.1787
+MSE: 0.1348, Precision: 0.1876, Recall: 0.0012, F1: 0.0024
 Prediction: Negative  Positive
-||Not Read:[3932050     143]
-||||||Read:[135774     33]
+||Not Read:[3930742     706]
+||||||Read:[136389    163]
 
 iter  4
-Training err 0.1888608529976329
-Testing err 0.18158569931983948
+Training err 0.2040824905131598
+Testing err 0.182870551943779
 
 Evaluation Scores:
-Hit: 0.1657, Hit+Rank: 0.1821
-MSE: 0.1335, Precision: 0.3000, Recall: 0.0000, F1: 0.0001
+Hit: 0.1725, Hit+Rank: 0.1886
+MSE: 0.1345, Precision: 0.1810, Recall: 0.0006, F1: 0.0012
 Prediction: Negative  Positive
-||Not Read:[3932179      14]
-||||||Read:[135801      6]
+||Not Read:[3931086     362]
+||||||Read:[136472     80]
 
 iter  5
-Training err 0.17789795254386445
-Testing err 0.174097940325737
+Training err 0.19286403448889092
+Testing err 0.1747032254934311
 
 Evaluation Scores:
-Hit: 0.1735, Hit+Rank: 0.1922
-MSE: 0.1335, Precision: 0.4870, Recall: 0.0004, F1: 0.0008
+Hit: 0.1802, Hit+Rank: 0.1984
+MSE: 0.1345, Precision: 0.2500, Recall: 0.0010, F1: 0.0020
 Prediction: Negative  Positive
-||Not Read:[3932134      59]
-||||||Read:[135751     56]
+||Not Read:[3931040     408]
+||||||Read:[136416    136]
 
 iter  6
-Training err 0.17195268162766342
-Testing err 0.16953177750110626
+Training err 0.18629188188966714
+Testing err 0.16960223019123077
 
 Evaluation Scores:
-Hit: 0.1768, Hit+Rank: 0.1971
-MSE: 0.1335, Precision: 0.5672, Recall: 0.0020, F1: 0.0039
+Hit: 0.1857, Hit+Rank: 0.2057
+MSE: 0.1344, Precision: 0.4197, Recall: 0.0034, F1: 0.0067
 Prediction: Negative  Positive
-||Not Read:[3931990     203]
-||||||Read:[135541    266]
+||Not Read:[3930812     636]
+||||||Read:[136092    460]
 
 iter  7
-Training err 0.16808679489032277
-Testing err 0.16629904508590698
+Training err 0.18183460798840853
+Testing err 0.16605143249034882
 
 Evaluation Scores:
-Hit: 0.1796, Hit+Rank: 0.2008
-MSE: 0.1333, Precision: 0.5982, Recall: 0.0065, F1: 0.0129
+Hit: 0.1886, Hit+Rank: 0.2100
+MSE: 0.1340, Precision: 0.5458, Recall: 0.0117, F1: 0.0228
 Prediction: Negative  Positive
-||Not Read:[3931600     593]
-||||||Read:[134924    883]
+||Not Read:[3930124    1324]
+||||||Read:[134961   1591]
 
 iter  8
-Training err 0.1652260516893189
-Testing err 0.16377033293247223
+Training err 0.17849318790923124
+Testing err 0.16340835392475128
 
 Evaluation Scores:
-Hit: 0.1826, Hit+Rank: 0.2047
-MSE: 0.1329, Precision: 0.5841, Recall: 0.0170, F1: 0.0331
+Hit: 0.1914, Hit+Rank: 0.2139
+MSE: 0.1334, Precision: 0.5654, Recall: 0.0296, F1: 0.0562
 Prediction: Negative  Positive
-||Not Read:[3930546    1647]
-||||||Read:[133494   2313]
+||Not Read:[3928344    3104]
+||||||Read:[132514   4038]
 
 iter  9
-Training err 0.16291356180448952
-Testing err 0.16168425977230072
+Training err 0.17595382695490458
+Testing err 0.16137222945690155
 
 Evaluation Scores:
-Hit: 0.1851, Hit+Rank: 0.2077
-MSE: 0.1326, Precision: 0.5544, Recall: 0.0371, F1: 0.0695
+Hit: 0.1937, Hit+Rank: 0.2166
+MSE: 0.1333, Precision: 0.5395, Recall: 0.0494, F1: 0.0904
 Prediction: Negative  Positive
-||Not Read:[3928144    4049]
-||||||Read:[130769   5038]
+||Not Read:[3925696    5752]
+||||||Read:[129813   6739]
 
 iter  10
-Training err 0.16097699260374285
-Testing err 0.15999023616313934
+Training err 0.17397233145604343
+Testing err 0.15974265336990356
 
 Evaluation Scores:
-Hit: 0.1866, Hit+Rank: 0.2100
-MSE: 0.1325, Precision: 0.5298, Recall: 0.0670, F1: 0.1189
+Hit: 0.1947, Hit+Rank: 0.2183
+MSE: 0.1331, Precision: 0.5337, Recall: 0.0689, F1: 0.1220
 Prediction: Negative  Positive
-||Not Read:[3924121    8072]
-||||||Read:[126712   9095]
+||Not Read:[3923230    8218]
+||||||Read:[127145   9407]
 
 iter  11
-Training err 0.1593843737394555
-Testing err 0.15861143171787262
+Training err 0.17238409029987622
+Testing err 0.1584198921918869
 
 Evaluation Scores:
-Hit: 0.1874, Hit+Rank: 0.2112
-MSE: 0.1334, Precision: 0.5034, Recall: 0.0978, F1: 0.1638
+Hit: 0.1963, Hit+Rank: 0.2210
+MSE: 0.1335, Precision: 0.5185, Recall: 0.0854, F1: 0.1467
 Prediction: Negative  Positive
-||Not Read:[3919086   13107]
-||||||Read:[122521  13286]
+||Not Read:[3920619   10829]
+||||||Read:[124890  11662]
 
 iter  12
-Training err 0.15808372082387875
-Testing err 0.15747857093811035
+Training err 0.17107817858645002
+Testing err 0.15731927752494812
 
 Evaluation Scores:
-Hit: 0.1884, Hit+Rank: 0.2126
-MSE: 0.1346, Precision: 0.4840, Recall: 0.1185, F1: 0.1904
+Hit: 0.1969, Hit+Rank: 0.2224
+MSE: 0.1341, Precision: 0.5037, Recall: 0.1009, F1: 0.1681
 Prediction: Negative  Positive
-||Not Read:[3915034   17159]
-||||||Read:[119709  16098]
+||Not Read:[3917874   13574]
+||||||Read:[122773  13779]
 
 iter  13
-Training err 0.15700199464394612
-Testing err 0.15652188658714294
+Training err 0.16997683507466466
+Testing err 0.15638400614261627
 
 Evaluation Scores:
-Hit: 0.1895, Hit+Rank: 0.2142
-MSE: 0.1362, Precision: 0.4674, Recall: 0.1406, F1: 0.2162
+Hit: 0.1983, Hit+Rank: 0.2242
+MSE: 0.1347, Precision: 0.4925, Recall: 0.1150, F1: 0.1864
 Prediction: Negative  Positive
-||Not Read:[3910440   21753]
-||||||Read:[116714  19093]
+||Not Read:[3915270   16178]
+||||||Read:[120854  15698]
 
 iter  14
-Training err 0.15608154054520265
-Testing err 0.15570120513439178
+Training err 0.16902698604565747
+Testing err 0.15557830035686493
 
 Evaluation Scores:
-Hit: 0.1908, Hit+Rank: 0.2157
-MSE: 0.1379, Precision: 0.4530, Recall: 0.1588, F1: 0.2352
+Hit: 0.1994, Hit+Rank: 0.2254
+MSE: 0.1356, Precision: 0.4817, Recall: 0.1266, F1: 0.2005
 Prediction: Negative  Positive
-||Not Read:[3906141   26052]
-||||||Read:[114236  21571]
+||Not Read:[3912850   18598]
+||||||Read:[119269  17283]
 
 iter  15
-Training err 0.15528930976705732
-Testing err 0.15498660504817963
+Training err 0.16820151841490524
+Testing err 0.15487205982208252
 
 Evaluation Scores:
-Hit: 0.1911, Hit+Rank: 0.2165
-MSE: 0.1396, Precision: 0.4425, Recall: 0.1749, F1: 0.2507
+Hit: 0.2000, Hit+Rank: 0.2263
+MSE: 0.1363, Precision: 0.4743, Recall: 0.1368, F1: 0.2123
 Prediction: Negative  Positive
-||Not Read:[3902275   29918]
-||||||Read:[112061  23746]
+||Not Read:[3910752   20696]
+||||||Read:[117878  18674]
 
 iter  16
-Training err 0.15459431825006534
-Testing err 0.15436546504497528
+Training err 0.16747839167807838
+Testing err 0.1542503535747528
 
 Evaluation Scores:
-Hit: 0.1922, Hit+Rank: 0.2178
-MSE: 0.1410, Precision: 0.4352, Recall: 0.1887, F1: 0.2633
+Hit: 0.2011, Hit+Rank: 0.2275
+MSE: 0.1371, Precision: 0.4667, Recall: 0.1463, F1: 0.2228
 Prediction: Negative  Positive
-||Not Read:[3898920   33273]
-||||||Read:[110174  25633]
+||Not Read:[3908622   22826]
+||||||Read:[116574  19978]
 
 iter  17
-Training err 0.15398750946206866
-Testing err 0.15381118655204773
+Training err 0.1668327643342738
+Testing err 0.1536940634250641
 
 Evaluation Scores:
-Hit: 0.1926, Hit+Rank: 0.2184
-MSE: 0.1425, Precision: 0.4288, Recall: 0.2024, F1: 0.2750
+Hit: 0.2016, Hit+Rank: 0.2280
+MSE: 0.1378, Precision: 0.4613, Recall: 0.1564, F1: 0.2336
 Prediction: Negative  Positive
-||Not Read:[3895569   36624]
-||||||Read:[108318  27489]
+||Not Read:[3906497   24951]
+||||||Read:[115190  21362]
 
 iter  18
-Training err 0.15344263552307333
-Testing err 0.15331414341926575
+Training err 0.166251854279881
+Testing err 0.15319302678108215
 
 Evaluation Scores:
-Hit: 0.1935, Hit+Rank: 0.2194
-MSE: 0.1437, Precision: 0.4240, Recall: 0.2132, F1: 0.2837
+Hit: 0.2024, Hit+Rank: 0.2290
+MSE: 0.1387, Precision: 0.4550, Recall: 0.1669, F1: 0.2442
 Prediction: Negative  Positive
-||Not Read:[3892863   39330]
-||||||Read:[106859  28948]
+||Not Read:[3904147   27301]
+||||||Read:[113762  22790]
 
 iter  19
-Training err 0.1529527632226734
-Testing err 0.15286673605442047
+Training err 0.16572360342965936
+Testing err 0.15274032950401306
 
 Evaluation Scores:
-Hit: 0.1942, Hit+Rank: 0.2201
-MSE: 0.1452, Precision: 0.4184, Recall: 0.2229, F1: 0.2909
+Hit: 0.2027, Hit+Rank: 0.2296
+MSE: 0.1398, Precision: 0.4483, Recall: 0.1772, F1: 0.2540
 Prediction: Negative  Positive
-||Not Read:[3890101   42092]
-||||||Read:[105529  30278]
+||Not Read:[3901668   29780]
+||||||Read:[112354  24198]
 
 iter  20
-Training err 0.15250962447820218
-Testing err 0.15245775878429413
+Training err 0.16524058285186877
+Testing err 0.15232929587364197
 
 Evaluation Scores:
-Hit: 0.1948, Hit+Rank: 0.2207
-MSE: 0.1464, Precision: 0.4135, Recall: 0.2305, F1: 0.2960
+Hit: 0.2032, Hit+Rank: 0.2302
+MSE: 0.1408, Precision: 0.4427, Recall: 0.1864, F1: 0.2623
 Prediction: Negative  Positive
-||Not Read:[3887793   44400]
-||||||Read:[104506  31301]
+||Not Read:[3899405   32043]
+||||||Read:[111102  25450]
