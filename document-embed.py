@@ -19,12 +19,16 @@ class batch_data:
 	def read_batch(self,num):
 		total_size=self.click.shape[0]
 		if num*self.batch_size>total_size:
-			return [],[],[],[],1
+			return [],[],[],[],[],1
 		click=self.click[self.batch_size*num:self.batch_size*(num+1),:]
 		time=self.time[self.batch_size*num:self.batch_size*(num+1),:]
 		category=self.category[self.batch_size*num:self.batch_size*(num+1)]
 		target=self.question[self.batch_size*num:self.batch_size*(num+1)]
-		return torch.from_numpy(click).float(), torch.from_numpy(time).float(), torch.from_numpy(category).long(), torch.from_numpy(target).float(), 0
+		location=np.zeros(target.shape)
+		location[target.nonzero()]=1
+		# weight the unread items lower
+		location[(target==-1).nonzero()]=0.8
+		return torch.from_numpy(click).float(), torch.from_numpy(time).float(), torch.from_numpy(category).long(), torch.from_numpy(target).float(), torch.from_numpy(location).float(), 0
 
 
 
@@ -32,27 +36,35 @@ class module(nn.Module):
 	
 	def __init__(self,user_num,category_num,dimension):
 		super(module, self).__init__()
-		self.embedding=nn.Embedding(category_num,dimension)
+		# self.embedding=nn.Embedding(category_num,dimension)
 		self.linear_c=nn.Linear(user_num,dimension,False)
 		self.linear_t=nn.Linear(user_num,dimension,False)
-		self.gru=nn.GRU(dimension*3,dimension,num_layers=2,bias=False)
-		self.softlinear=nn.Linear(dimension,user_num,False)
+		self.gru=nn.GRU(dimension*2,dimension,num_layers=2,bias=False)
+		# self.softlinear=nn.Linear(dimension,user_num,False)
 		
-	def forward(self,click,time,category,target):
+	def forward(self,click,time,category,target,location):
 		click=self.linear_c(click)
 		time=self.linear_t(time)
-		category=self.embedding(category)
-		gru_input=torch.cat((click,time,category),1).unsqueeze(0)
+		# category=self.embedding(category)
+		# gru_input=torch.cat((click,time,category),1).unsqueeze(0)
+		gru_input=torch.cat((click,time),1).unsqueeze(0)
 		hidden,_=self.gru(gru_input)
 		hidden=hidden.squeeze(0)
 
 		pred=nn.Tanh()(hidden)
-		pred= self.softlinear(pred)
-		Criterion=nn.MSELoss(size_average=True)
-		err=Criterion(pred, target)
+		# pred= self.softlinear(pred)
+
+		lost=(pred-target)**2
+		num=location.sum(1).unsqueeze(1)
+		lost=lost*location
+		lost=lost/num
+		err=lost.sum()
+		err=err/lost.shape[0]
+
+		# Criterion=nn.MSELoss(size_average=True)
+		# err=Criterion(pred, target)
 
 		return hidden.data.numpy(),err,pred.data.numpy()
-
 
 
 class embedding:
@@ -76,7 +88,7 @@ class embedding:
 
 		self.module=module(self.click.shape[1],int(self.category.max())+1,self.dimension)
 		self.module=self.module
-		self.module_optimizer=optim.Adam(self.module.parameters(),lr)
+		self.module_optimizer=optim.SGD(self.module.parameters(),lr,momentum=9)
 		
 		if self.log!="":
 			with open(self.log,"w") as log:
@@ -88,7 +100,9 @@ class embedding:
 
 	def test(self):
 		self.module.eval()
-		hidden,err,pred=self.module(torch.from_numpy(self.click).float(),torch.from_numpy(self.time).float(),torch.from_numpy(self.category).long(),torch.from_numpy(self.key).float())
+		location=np.zeros(self.key.shape)
+		location[self.key.nonzero()]=1
+		hidden,err,pred=self.module(torch.from_numpy(self.click).float(),torch.from_numpy(self.time).float(),torch.from_numpy(self.category).long(),torch.from_numpy(self.key).float(),torch.from_numpy(location).float())
 		
 		if self.iter>=10:
 			torch.save(hidden,self.save_folder+"/hidden"+str(self.iter)+".pkl")
@@ -132,7 +146,7 @@ class embedding:
 			num=0
 			End=0
 			while End==0:
-				click, time, category, target, End = self.data.read_batch(num)
+				click, time, category, target, location, End = self.data.read_batch(num)
 				
 				if End==1:
 					break
@@ -140,11 +154,12 @@ class embedding:
 				time=Variable(time)
 				category=Variable(category)
 				target=Variable(target)
+				location=Variable(location)
 
 				self.module_optimizer.zero_grad()
 
 				self.module.train()
-				hidden,err,pred=self.module(click,time,category,target)
+				hidden,err,pred=self.module(click,time,category,target,location)
 				err.backward()
 				sum_err+=err.data.item()
 				
@@ -167,10 +182,10 @@ class embedding:
 if __name__ == '__main__':
 	from data import *
 	from content import *
-	dimension=512
+	dimension=1000
 	batch_size=128
 	max_iter=20
-	lr=0.001
+	lr=0.1
 
 	path="active1000"
 	dataset=data(path)

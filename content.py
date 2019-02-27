@@ -75,7 +75,18 @@ class content:
 
 	def nearest(self,rep):
 		cosine_sim = cosine_similarity(rep)
-		score=np.dot(self.question,cosine_sim)
+		
+		num1=(self.question==1).sum(1).reshape(-1,1)
+		num1[(num1==0).nonzero()]=1
+		num2=(self.question==-1).sum(1).reshape(-1,1)
+		num2[(num2==0).nonzero()]=1
+
+		read=(self.question==1)/num1
+		unread=(self.question==-1)/num2
+		num=read+unread
+
+		score=np.dot(self.question*num,cosine_sim)
+
 		prediction=np.zeros(self.question.shape)
 		prediction.fill(-1)
 		prediction[(score>0).nonzero()]=1
