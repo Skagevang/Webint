@@ -105,8 +105,8 @@ class content:
 		active_time[location]=0
 		return np.transpose(active_time)
 
-	def nearest(self,rep,list=False):
-		if list:
+	def nearest(self,rep,l=False):
+		if l:
 			cosine_sim=cosine_similarity(rep[0])
 			for r in rep[1:]:
 				cosine_sim+=cosine_similarity(r)
@@ -129,8 +129,8 @@ class content:
 		prediction[(score>0).nonzero()]=1
 		return prediction
 
-	def user_nearest(self,rep,list=False):
-		if list:
+	def user_nearest(self,rep,l=False):
+		if l:
 			cosine_sim=cosine_similarity(np.transpose(rep[0]))
 			for r in rep[1:]:
 				cosine_sim+=cosine_similarity(np.transpose(r))
@@ -154,6 +154,7 @@ class content:
 		prediction.fill(-1)
 		prediction[(score>0).nonzero()]=1
 		return np.transpose(prediction)
+
 
 
 	def representation(self, method='click'):
@@ -193,6 +194,7 @@ class content:
 			read=(key==1).sum(1).reshape(key.shape[0],1)
 			l=(read==0).nonzero()
 			num=(read==0).sum()
+			# pred: item x user
 			pred=np.transpose(pred)
 			pred[self.counter]-=1000
 			pred=np.transpose(pred)
@@ -210,5 +212,26 @@ class content:
 			total_correct[l]=1
 			total_correct=total_correct.reshape(-1)
 			arhr=(score/total_correct).sum()/(key.shape[0]-num)
+			
+			return recall, arhr
+		elif method=="user-rank":
+			key=self.key.copy()
+			key[self.counter]=-1
+			read=(key==1).sum(1).reshape(key.shape[0],1)
+			l=(read==0).nonzero()
+			num=(read==0).sum()
+			# pred: item x user
+			pred=np.transpose(pred)
+			pred[self.counter]-=1000
+			ranking=(-pred).argsort().argsort()
+			pred1=np.zeros(pred.shape)
+			pred1[ranking<read]=1
+
+			tp=(pred1==key).sum(1)
+			read[l]=1
+			read=read.reshape(-1)
+			recall=(tp/read).sum()/(key.shape[0]-num)
+
+			arhr=((pred1==key)/(ranking+1)).sum()/(key.shape[0]-num)
 			
 			return recall, arhr

@@ -113,12 +113,16 @@ class embedding:
 			with open(self.log,"a") as log:
 				log.write("Testing err "+str(err)+"\n")
 
-		r,arhr=self.content.evaluate(pred,method="rank")
+		pred=(pred-np.mean(pred,axis=1).reshape(-1,1))/np.std(pred,axis=1).reshape(-1,1)
 
-		pred=self.content.predict(hidden)
+		r,arhr=self.content.evaluate(pred,method="rank")
+		r1,arhr1=self.content.evaluate(pred,method="user-rank")
+
+		pred=self.content.predict(hidden,'nearest')
 		MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="error")
 		print("\nEvaluation Scores:")
 		print("Hit: {:.4f}, Hit+Rank: {:.4f}".format(r,arhr))
+		print("Recall: {:.4f}, ARHR: {:.4f}".format(r1,arhr1))
 		print("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
 		print("Prediction: Negative  Positive")
 		print("||Not Read:{}".format(confusion_matrix[0]))
@@ -127,6 +131,7 @@ class embedding:
 			with open(self.log,"a") as log:
 				log.write("\nEvaluation Scores:\n")
 				log.write("Hit: {:.4f}, Hit+Rank: {:.4f}\n".format(r,arhr))
+				log.write("Recall: {:.4f}, ARHR: {:.4f}".format(r1,arhr1))
 				log.write("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
 				log.write("Prediction: Negative  Positive\n")
 				log.write("||Not Read:{}\n".format(confusion_matrix[0]))

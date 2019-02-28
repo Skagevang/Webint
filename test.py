@@ -1,5 +1,6 @@
 from data import *
 from content import *
+import numpy as np
 
 print("Started. It may take some time.")
 print("===========")
@@ -51,10 +52,13 @@ print(time_rep.shape)
 
 print("===========")
 
-print("Content-based nearest recommendation with category matrix (about 30s):")
-pred=content_based.predict(category_rep, method='nearest')
+pred=content_based.predict(np.transpose(content_based.question), method='user-nearest')
 dataset.evaluate(pred)
-print("===========")
+
+# print("Content-based nearest recommendation with category matrix (about 30s):")
+# pred=content_based.predict(category_rep, method='nearest')
+# dataset.evaluate(pred)
+# print("===========")
 
 # print("Content-based nearest recommendation with title matrix (about 30s):")
 # pred=content_based.predict(title_rep, method='nearest')
