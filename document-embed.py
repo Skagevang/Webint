@@ -8,11 +8,11 @@ import numpy as np
 
 class batch_data:
 
-	def __init__(self,batch_size,category_list,click_rep,time_rep,question):
+	def __init__(self,batch_size,category_matrix,click_rep,time_rep,question):
 		self.batch_size=batch_size
 		self.click=click_rep
 		self.time=time_rep
-		self.category=category_list
+		self.category=category_matrix
 		self.question=question
 
 
@@ -28,24 +28,26 @@ class batch_data:
 		location[target.nonzero()]=1
 		# weight the unread items lower
 		location[(target==-1).nonzero()]=0.1
-		return torch.from_numpy(click).float(), torch.from_numpy(time).float(), torch.from_numpy(category).long(), torch.from_numpy(target).float(), torch.from_numpy(location).float(), 0
+		return torch.from_numpy(click).float(), torch.from_numpy(time).float(), torch.from_numpy(category).float(), torch.from_numpy(target).float(), torch.from_numpy(location).float(), 0
 
 
 
 class module(nn.Module):
 	
-	def __init__(self,user_num,category_num,dimension):
+	def __init__(self,user_num,dimension):
 		super(module, self).__init__()
-		self.embedding=nn.Embedding(category_num,dimension)
+		# self.embedding=nn.Embedding(category_num,dimension)
 		self.linear_c=nn.Linear(user_num,dimension,False)
 		self.linear_t=nn.Linear(user_num,dimension,False)
+		self.linear_ca=nn.Linear(user_num,dimension,False)
 		self.gru=nn.GRU(dimension*3,dimension,num_layers=2,bias=False)
 		# self.softlinear=nn.Linear(dimension,user_num,False)
 		
 	def forward(self,click,time,category,target,location):
 		click=self.linear_c(click)
 		time=self.linear_t(time)
-		category=self.embedding(category)
+		category=self.linear_ca(category)
+		# category=self.embedding(category)
 		gru_input=torch.cat((click,time,category),1).unsqueeze(0)
 		# gru_input=torch.cat((click,time),1).unsqueeze(0)
 		hidden,_=self.gru(gru_input)
@@ -75,7 +77,7 @@ class embedding:
 
 		self.content=content
 		
-		self.category=content.category_list(content.data)
+		self.category=content.category_matrix(content.data)
 		self.click=content.representation('click')
 		self.time=content.representation('active_time')
 
@@ -84,9 +86,9 @@ class embedding:
 		
 		self.data=batch_data(batch_size,self.category,self.click,self.time,self.question)
 		self.save_folder='embedding'
-		self.log='embedding/log'
+		self.log='log'
 
-		self.module=module(self.click.shape[1],int(self.category.max())+1,self.dimension)
+		self.module=module(self.click.shape[1],self.dimension)
 		self.module=self.module
 		self.module_optimizer=optim.SGD(self.module.parameters(),lr,momentum=0.9)
 		
@@ -102,10 +104,10 @@ class embedding:
 		self.module.eval()
 		location=np.zeros(self.key.shape)
 		location[self.key.nonzero()]=1
-		hidden,err,pred=self.module(torch.from_numpy(self.click).float(),torch.from_numpy(self.time).float(),torch.from_numpy(self.category).long(),torch.from_numpy(self.key).float(),torch.from_numpy(location).float())
+		hidden,err,pred=self.module(torch.from_numpy(self.click).float(),torch.from_numpy(self.time).float(),torch.from_numpy(self.category).float(),torch.from_numpy(self.key).float(),torch.from_numpy(location).float())
 		
-		if self.iter>=10:
-			torch.save(hidden,self.save_folder+"/hidden"+str(self.iter)+".pkl")
+		# if self.iter>=10:
+			# torch.save(hidden,self.save_folder+"/hidden"+str(self.iter)+".pkl")
 		
 		err=err.data.item()
 		print("Testing err "+str(err))
@@ -115,26 +117,54 @@ class embedding:
 
 		pred=(pred-np.mean(pred,axis=1).reshape(-1,1))/np.std(pred,axis=1).reshape(-1,1)
 
-		r,arhr=self.content.evaluate(pred,method="rank")
-		r1,arhr1=self.content.evaluate(pred,method="user-rank")
+		r,arhr, MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="rank")
 
 		print("\nEvaluation Scores:")
-		print("Hit: {:.4f}, Hit+Rank: {:.4f}".format(r,arhr))
-		print("Recall: {:.4f}, ARHR: {:.4f}".format(r1,arhr1))
+
+		print("\nItem-based")
+		print("Hit: {:.4f}, Hit weighted by Rank: {:.4f}".format(r,arhr))
+		print("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}".format(MSE,precision,recall,f1))
+		print("Prediction: Negative  Positive")
+		print("||Not Read:{}".format(confusion_matrix[0]))
+		print("||||||Read:{}\n".format(confusion_matrix[1]))
 		if self.log!="":
 			with open(self.log,"a") as log:
 				log.write("\nEvaluation Scores:\n")
-				log.write("Hit: {:.4f}, Hit+Rank: {:.4f}\n".format(r,arhr))
-				log.write("Recall: {:.4f}, ARHR: {:.4f}\n".format(r1,arhr1))
+				log.write("\nItem-based\n")
+				log.write("Hit: {:.4f}, Hit weighted by Rank: {:.4f}\n".format(r,arhr))
+				log.write("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
+				log.write("Prediction: Negative  Positive\n")
+				log.write("||Not Read:{}\n".format(confusion_matrix[0]))
+				log.write("||||||Read:{}\n".format(confusion_matrix[1]))
+
+
+		r,arhr, MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="user-rank")
+		print("User-based")
+		print("Hit recall: {:.4f}, ARHR: {:.4f}".format(r,arhr))
+		print("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}".format(MSE,precision,recall,f1))
+		print("Prediction: Negative  Positive")
+		print("||Not Read:{}".format(confusion_matrix[0]))
+		print("||||||Read:{}\n".format(confusion_matrix[1]))
+		if self.log!="":
+			with open(self.log,"a") as log:
+				log.write("\nUser-based\n")
+				log.write("Hit recall: {:.4f}, ARHR: {:.4f}\n".format(r,arhr))
+				log.write("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}".format(MSE,precision,recall,f1))
+				log.write("Prediction: Negative  Positive\n")
+				log.write("||Not Read:{}\n".format(confusion_matrix[0]))
+				log.write("||||||Read:{}\n".format(confusion_matrix[1]))
+
 
 		pred=self.content.predict(hidden,'item', quick=True)
 		MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="error")
+		print("Hidden embedding with nearest algorithm")
 		print("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
 		print("Prediction: Negative  Positive")
 		print("||Not Read:{}".format(confusion_matrix[0]))
 		print("||||||Read:{}\n".format(confusion_matrix[1]))
 		if self.log!="":
 			with open(self.log,"a") as log:
+				log.write("\nHidden embedding with nearest algorithm\n")
 				log.write("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
 				log.write("Prediction: Negative  Positive\n")
 				log.write("||Not Read:{}\n".format(confusion_matrix[0]))
@@ -199,6 +229,6 @@ if __name__ == '__main__':
 	dataset=data(path)
 	c=content(dataset.data,dataset.question,dataset.click_matrix,dataset.location,dataset.counter_location)
 	model=embedding(dimension,batch_size,max_iter,c,lr)
-	print("Start Training")
+	print("\nStart Training")
 	model.train()
     

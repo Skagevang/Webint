@@ -29,6 +29,37 @@ class content:
 			category_list[row[1]-1]=row[2]
 		return category_list
 
+	def category_matrix(self,df):
+		df_item=df[['tid','category']]
+		df_item['category'] = df_item['category'].str.split('|')
+		df_item['category'] = df_item['category'].fillna("").astype('str')
+		df_item.sort_values(by=['tid','category'], ascending=True, inplace=True)
+		df_item.drop_duplicates(subset=['tid'],keep='last',inplace=True)
+
+		df_user=df[['uid','tid','category']]
+		df_user.dropna(subset=['category'],inplace=True)
+		df_user['category'] = df_user['category'].str.split('|')
+		df_user['category'] = df_user['category'].fillna("").astype('str')
+
+		df_category=df_item.drop_duplicates(subset=['category'])
+		df_category.sort_values(by=['category'],inplace=True)
+		df_category['cid']=np.array(range(df_item['category'].nunique()))
+
+		df_item=pd.merge(df_item, df_category[['category','cid']], on='category', how='outer')
+		item_category=np.zeros((df_item.shape[0],df_category.shape[0]))
+		for row in df_item[['tid','cid']].itertuples():
+			item_category[row[1]-1,row[2]-1]=1
+
+		df_user=pd.merge(df_user, df_category[['category','cid']], on='category', how='inner')
+		category_user=np.zeros((df_category.shape[0],df_user['uid'].nunique()))
+		deleted=0
+		for row in df_user[['cid','uid','tid']].itertuples():
+			if self.question[row[2]-1,row[3]-1]!=0:
+				category_user[row[1]-1,row[2]-1]+=1
+			else:
+				deleted+=1
+		print(deleted)
+		return item_category@category_user
 
 	def TFIDF_category(self,df):
 		df_item=df[['tid','category']]
@@ -200,6 +231,9 @@ class content:
 			ranking=(-pred).argsort().argsort()
 			pred1=np.zeros(pred.shape)
 			pred1[ranking<read]=1
+			pred.fill(-1)
+			pred[ranking<read]=1
+			pred=pred.transpose()
 
 			tp=(pred1==key).sum(1)
 			read[l]=1
@@ -211,19 +245,26 @@ class content:
 			total_correct[l]=1
 			total_correct=total_correct.reshape(-1)
 			arhr=(score/total_correct).sum()/(key.shape[0]-num)
-			
-			return recall, arhr
+
+			pred=pred[self.location].flatten()
+			key=self.key[self.location].flatten()
+
+			return recall, arhr, mean_squared_error(key, pred), precision_score(key, pred), recall_score(key, pred), f1_score(key,pred), confusion_matrix(key,pred)
+
+
 		elif method=="user-rank":
 			key=self.key.copy()
 			key[self.counter]=-1
 			read=(key==1).sum(1).reshape(key.shape[0],1)
 			l=(read==0).nonzero()
 			num=(read==0).sum()
-			pred=np.transpose(pred)
+			pred=pred.transpose()
 			pred[self.counter]-=1000
 			ranking=(-pred).argsort().argsort()
 			pred1=np.zeros(pred.shape)
 			pred1[ranking<read]=1
+			pred.fill(-1)
+			pred[ranking<read]=1
 
 			tp=(pred1==key).sum(1)
 			read[l]=1
@@ -231,5 +272,8 @@ class content:
 			recall=(tp/read).sum()/(key.shape[0]-num)
 
 			arhr=((pred1==key)/(ranking+1)).sum()/(key.shape[0]-num)
+
+			pred=pred[self.location].flatten()
+			key=self.key[self.location].flatten()
 			
-			return recall, arhr
+			return recall, arhr, mean_squared_error(key, pred), precision_score(key, pred), recall_score(key, pred), f1_score(key,pred), confusion_matrix(key,pred)
