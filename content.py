@@ -7,6 +7,8 @@ from sklearn.metrics import mean_squared_error,recall_score,precision_score,f1_s
 
 class content:
 
+
+
 	def __init__(self,data,question,key,location,counter_location):
 		self.data=data
 		self.question=question
@@ -14,7 +16,13 @@ class content:
 		self.counter=counter_location
 		self.key=key
 
+
+
 	def category_list(self,df):
+		"""
+		output size: item x 1
+		map each item with its category's id (cid).
+		"""
 		df_item=df[['tid','category']]
 		df_item['category'] = df_item['category'].str.split('|')
 		df_item['category'] = df_item['category'].fillna("").astype('str')
@@ -29,7 +37,13 @@ class content:
 			category_list[row[1]-1]=row[2]
 		return category_list
 
+
+
 	def category_matrix(self,df):
+		"""
+		output size: item x user
+		this matrix is about category overlap between user and item.
+		"""
 		df_item=df[['tid','category']]
 		df_item['category'] = df_item['category'].str.split('|')
 		df_item['category'] = df_item['category'].fillna("").astype('str')
@@ -52,16 +66,18 @@ class content:
 
 		df_user=pd.merge(df_user, df_category[['category','cid']], on='category', how='inner')
 		category_user=np.zeros((df_category.shape[0],df_user['uid'].nunique()))
-		deleted=0
 		for row in df_user[['cid','uid','tid']].itertuples():
 			if self.question[row[2]-1,row[3]-1]!=0:
 				category_user[row[1]-1,row[2]-1]+=1
-			else:
-				deleted+=1
-		print(deleted)
 		return item_category@category_user
 
+
+
 	def TFIDF_category(self,df):
+		"""
+		output size: item x category types
+		TFIDF matrix of category on item
+		"""
 		df_item=df[['tid','category']]
 		df_item['category'] = df_item['category'].str.split('|')
 		df_item['category'] = df_item['category'].fillna("").astype('str')
@@ -73,7 +89,13 @@ class content:
 		tfidf_matrix = tf.fit_transform(df_item['category'])
 		return tfidf_matrix
 
+
+
 	def TFIDF_user_category(self,df):
+		"""
+		output size: user x category types
+		TFIDF matrix of category on user
+		"""
 		df_item=df[['uid','tid','category']]
 		df_item['category'] = df_item['category'].str.split('|')
 		df_item['category'] = df_item['category'].fillna("").astype('str')
@@ -103,9 +125,15 @@ class content:
 		# generate TF-IDF matrix 
 		tf = TfidfVectorizer(ngram_range=(1,2),min_df=0)
 		tfidf_matrix = tf.fit_transform(user_category)
-		return np.transpose(tfidf_matrix)
+		return tfidf_matrix
+
+
 
 	def TFIDF_title(self,df,min_df=2):
+		"""
+		output size: item x title vocabulary
+		TFIDF matrix of title on item
+		"""
 		df_item=df[['tid','title']]
 		df_item['title'] = df_item['title'].fillna("").astype('str')
 		df_item.sort_values(by=['tid','title'], ascending=True, inplace=True)
@@ -114,7 +142,13 @@ class content:
 		tfidf_matrix = tf.fit_transform(df_item['title'])
 		return tfidf_matrix
 
-	def click(self,df,location):
+
+
+	def click(self,df):
+		"""
+		output size: item x user
+		accumulated click matrix
+		"""
 		df_click=df[['uid','tid']]
 		df_click['click']=np.ones(df_click.shape[0])
 		df_click=df_click.groupby(['uid','tid'],as_index=False).sum()
@@ -122,10 +156,16 @@ class content:
 		click.fill(-1)
 		for row in df_click.itertuples():
 			click[row[1]-1,row[2]-1]=row[3]
-		click[location]=0
-		return np.transpose(click)
+		click[self.location]=0
+		return click.transpose()
 
-	def active_time(self,df,location):
+
+
+	def active_time(self,df):
+		"""
+		output size: item x user
+		active time matrix
+		"""
 		df_time=df[['uid','tid','activeTime']]
 		df_time=df_time.fillna(0)
 		df_time=df_time.groupby(['uid','tid'],as_index=False).sum()
@@ -133,10 +173,39 @@ class content:
 		active_time.fill(-1)
 		for row in df_time.itertuples():
 			active_time[row[1]-1,row[2]-1]=row[3]
-		active_time[location]=0
-		return np.transpose(active_time)
+		active_time[self.location]=0
+		return active_time.transpose()
+
+
+
+	def representation(self, method='click'):
+		"""
+		output size: generally item x embedding
+		TFIDF_user_category generates user x embedding
+		"""
+		if method=="category":
+			rep=self.TFIDF_category(self.data)
+		elif method=="user-category":
+			rep=self.TFIDF_user_category(self.data)
+		elif method=="title":
+			rep=self.TFIDF_title(self.data)
+		elif method=="click":
+			rep=self.click(self.data)
+		elif method=="active_time":
+			rep=self.active_time(self.data)
+		else:
+			rep=0
+		return rep
+
+
 
 	def calculate_sim(self,rep,quick=True):
+		"""
+		input size: item x embeddng or user x embedding
+		output size: item x item or user x user
+		consine similarity matrix for both collaborative and content based recommendation.
+		when quick=False, the unknown values are masked. Requires 10-20 minutes.
+		"""
 		cosine_sim=np.zeros((rep[0].shape[0],rep[0].shape[0]))
 		if quick:
 			for r in rep:
@@ -158,6 +227,13 @@ class content:
 
 
 	def nearest(self,cosine_sim,user=False):
+		"""
+		input size: item x item or user x user
+		output size: user x item
+		when user=True, the input size should be user x user
+		recommend by comparing the distances of the two groups: "read" and "not read"
+		can be used by both collaborative and content based recommendation
+		"""
 		if user:
 			question=self.question.transpose()
 		else:
@@ -172,7 +248,7 @@ class content:
 		unread=(question==-1)/num2
 		num=read+unread
 
-		score=np.dot(question*num,cosine_sim)
+		score=(question*num)@cosine_sim
 
 		prediction=np.zeros(question.shape)
 		prediction.fill(-1)
@@ -182,22 +258,17 @@ class content:
 		else:
 			return prediction
 
-	def representation(self, method='click'):
-		if method=="category":
-			rep=self.TFIDF_category(self.data)
-		elif method=="user-category":
-			rep=self.TFIDF_user_category(self.data)
-		elif method=="title":
-			rep=self.TFIDF_title(self.data)
-		elif method=="click":
-			rep=self.click(self.data,self.location)
-		elif method=="active_time":
-			rep=self.active_time(self.data,self.location)
-		else:
-			rep=0
-		return rep
+
 
 	def predict(self, rep, method='item', quick=True):
+		"""
+		input size:
+		method='item' -> item x embedding
+		method='user' -> user x embedding
+		can be a list.
+
+		output size: user x item
+		"""
 		if type(rep)!=list:
 			rep=[rep]
 		if quick:
@@ -205,20 +276,26 @@ class content:
 		else:
 			cosine_sim=self.calculate_sim(rep,False)
 
-		if method=="item":  # rep = item x embedding
+		if method=="item":
 			return self.nearest(cosine_sim)
-		elif method=="user": # rep = user x embedding
+		elif method=="user":
 			return self.nearest(cosine_sim,True)
 
+
+
 	def evaluate(self,pred,method):
-		# pred: item x user
+		"""
+		input size: item x user
+		when method="error", input should be a prediction
+		when method="rank", input should be scores for each user
+		when method="user-rank", input should be standarized for each item
+		"""
 		if method=="error":
-			# pred: prediction
 			pred = pred[self.location].flatten()
 			key = self.key[self.location].flatten()
 			return mean_squared_error(key, pred), precision_score(key, pred), recall_score(key, pred), f1_score(key,pred), confusion_matrix(key,pred)
+		
 		elif method=="rank":
-			# pred: scores
 			key=self.key.copy()
 			key[self.counter]=-1
 			key=np.transpose(key)

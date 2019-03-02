@@ -53,25 +53,25 @@ print(time_rep.shape)
 print("===========")
 
 
-pred=content_based.predict(content_based.question.transpose(), method='item', quick=True)
-dataset.evaluate(pred)
+# pred=content_based.predict(content_based.question.transpose(), method='item', quick=True)
+# dataset.evaluate(pred)
 
 # print("Content-based nearest recommendation with category matrix (about 20min):")
-# pred=content_based.predict(category_rep, method='nearest')
+# pred=content_based.predict(category_rep, method='item')
 # dataset.evaluate(pred)
 # print("===========")
 
 # print("Content-based nearest recommendation with title matrix (about 20min):")
-# pred=content_based.predict(title_rep, method='nearest')
+# pred=content_based.predict(title_rep, method='item')
 # dataset.evaluate(pred)
 # print("===========")
 
 # print("Content-based nearest recommendation with click matrix (about 20min):")
-# pred=content_based.predict(click_rep, method='nearest')
+# pred=content_based.predict(click_rep, method='item')
 # dataset.evaluate(pred)
 # print("===========")
 
 # print("Content-based nearest recommendation with active time matrix (about 20min):")
-# pred=content_based.predict(time_rep, method='nearest')
+# pred=content_based.predict(time_rep, method='item')
 # dataset.evaluate(pred)
 # print("===========")
