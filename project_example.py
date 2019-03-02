@@ -94,6 +94,10 @@ def train_test_split(ratings, fraction=0.2):
         test_ratings = np.random.choice(ratings[user, :].nonzero()[0], 
                                         size=size, 
                                         replace=False)
+        # size = int(ratings.shape[1] * fraction)
+        # test_ratings = np.random.choice(range(ratings.shape[1]), 
+                                            # size=size, 
+                                            # replace=False)
         train[user, test_ratings] = 0.
         test[user, test_ratings] = ratings[user, test_ratings]
     return train, test
@@ -110,7 +114,6 @@ def evaluate(pred, actual, k):
             tp += 1.
             arhr += 1./float(p.index(t) + 1.)
     recall = tp / float(total_num)
-    print(zip(pred,actual))
     print("Recall@{} is {:.4f}".format(k, recall))
     print("ARHR@{} is {:.4f}".format(k, arhr))
     
@@ -209,9 +212,9 @@ if __name__ == '__main__':
     print("Basic statistics of the dataset...")
     # statistics(df)
     
-    # ##### Recommendations based on Collaborative Filtering (Matrix Factorization) #######
-    # print("Recommendation based on MF...")
-    # collaborative_filtering(df)
+    ##### Recommendations based on Collaborative Filtering (Matrix Factorization) #######
+    print("Recommendation based on MF...")
+    collaborative_filtering(df)
     
     ###### Recommendations based on Content-based Method (Cosine Similarity) ############
     print("Recommendation based on content-based method...")

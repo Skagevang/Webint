@@ -105,40 +105,33 @@ class content:
 		active_time[location]=0
 		return np.transpose(active_time)
 
-	def nearest(self,rep,l=False):
-		if l:
-			cosine_sim=cosine_similarity(rep[0])
-			for r in rep[1:]:
+	def calculate_sim(self,rep,quick=True):
+		cosine_sim=np.zeros((rep[0].shape[0],rep[0].shape[0]))
+		if quick:
+			for r in rep:
 				cosine_sim+=cosine_similarity(r)
+			return cosine_sim/len(rep)
+		for r in rep:
+			sim=r@r.transpose()
+			r=np.abs(r)
+			l=r!=0
+			weight=np.zeros(sim.shape)
+			for i in range(weight.shape[0]):
+				weighted_r=(l*r[i]).transpose()
+				weight[i]=r[i]@weighted_r
+				del weighted_r
+				if i==int(weight.shape[0]/2):
+					print("prediction 50% finished")
+			cosine_sim+=(sim/weight)/(weight.transpose())
+		return cosine_sim/len(rep)
+
+
+	def nearest(self,cosine_sim,user=False):
+		if user:
+			question=self.question.transpose()
 		else:
-			cosine_sim = cosine_similarity(rep)
-		
-		num1=(self.question==1).sum(1).reshape(-1,1)
-		num1[(num1==0).nonzero()]=1
-		num2=(self.question==-1).sum(1).reshape(-1,1)
-		num2[(num2==0).nonzero()]=1
-
-		read=(self.question==1)/num1
-		unread=(self.question==-1)/num2
-		num=read+unread
-
-		score=np.dot(self.question*num,cosine_sim)
-
-		prediction=np.zeros(self.question.shape)
-		prediction.fill(-1)
-		prediction[(score>0).nonzero()]=1
-		return prediction
-
-	def user_nearest(self,rep,l=False):
-		if l:
-			cosine_sim=cosine_similarity(np.transpose(rep[0]))
-			for r in rep[1:]:
-				cosine_sim+=cosine_similarity(np.transpose(r))
-		else:
-			cosine_sim = cosine_similarity(np.transpose(rep))
-
-		question=np.transpose(self.question)
-		
+			question=self.question
+	
 		num1=(question==1).sum(1).reshape(-1,1)
 		num1[(num1==0).nonzero()]=1
 		num2=(question==-1).sum(1).reshape(-1,1)
@@ -153,9 +146,10 @@ class content:
 		prediction=np.zeros(question.shape)
 		prediction.fill(-1)
 		prediction[(score>0).nonzero()]=1
-		return np.transpose(prediction)
-
-
+		if user:
+			return prediction.transpose()
+		else:
+			return prediction
 
 	def representation(self, method='click'):
 		if method=="category":
@@ -172,29 +166,34 @@ class content:
 			rep=0
 		return rep
 
-	def predict(self, rep, method='nearest'):
-		if method=="nearest":
-			return self.nearest(rep)
-		elif method=="nearest-list":
-			return self.nearest(rep,True)
-		elif method=="user-nearest":
-			return self.user_nearest(rep)
-		elif method=="user-nearest-list":
-			return self.nearest(rep,True)
+	def predict(self, rep, method='item', quick=True):
+		if type(rep)!=list:
+			rep=[rep]
+		if quick:
+			cosine_sim=self.calculate_sim(rep)
+		else:
+			cosine_sim=self.calculate_sim(rep,False)
+
+		if method=="item":  # rep = item x embedding
+			return self.nearest(cosine_sim)
+		elif method=="user": # rep = user x embedding
+			return self.nearest(cosine_sim,True)
 
 	def evaluate(self,pred,method):
+		# pred: item x user
 		if method=="error":
+			# pred: prediction
 			pred = pred[self.location].flatten()
 			key = self.key[self.location].flatten()
 			return mean_squared_error(key, pred), precision_score(key, pred), recall_score(key, pred), f1_score(key,pred), confusion_matrix(key,pred)
 		elif method=="rank":
+			# pred: scores
 			key=self.key.copy()
 			key[self.counter]=-1
 			key=np.transpose(key)
 			read=(key==1).sum(1).reshape(key.shape[0],1)
 			l=(read==0).nonzero()
 			num=(read==0).sum()
-			# pred: item x user
 			pred=np.transpose(pred)
 			pred[self.counter]-=1000
 			pred=np.transpose(pred)
@@ -220,7 +219,6 @@ class content:
 			read=(key==1).sum(1).reshape(key.shape[0],1)
 			l=(read==0).nonzero()
 			num=(read==0).sum()
-			# pred: item x user
 			pred=np.transpose(pred)
 			pred[self.counter]-=1000
 			ranking=(-pred).argsort().argsort()
