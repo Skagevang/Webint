@@ -1,0 +1,772 @@
+Testing err 1.3407026529312134
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.0641, Hit weighted by Rank: 0.0651
+MSE: 0.2087, Precision: 0.2203, Recall: 0.2203, F1: 0.2203
+Prediction: Negative  Positive
+||Not Read:[3825742  106138]
+||||||Read:[106138  29982]
+
+User-based
+Hit recall: 0.0007, ARHR: 0.0162
+MSE: 0.1533, Precision: 0.0050, Recall: 0.0007, F1: 0.0013Prediction: Negative  Positive
+||Not Read:[3911979   19901]
+||||||Read:[136021     99]
+
+Hidden embedding with nearest algorithm
+MSE: 0.7110, Precision: 0.1456, Recall: 0.8857, F1: 0.2501
+Prediction: Negative  Positive
+||Not Read:[3224385  707495]
+||||||Read:[ 15563 120557]
+
+iter  1
+Training err 0.540993822946465
+Testing err 0.48775532841682434
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.1808, Hit weighted by Rank: 0.1878
+MSE: 0.1969, Precision: 0.2643, Recall: 0.2643, F1: 0.2643
+Prediction: Negative  Positive
+||Not Read:[3831738  100142]
+||||||Read:[100142  35978]
+
+User-based
+Hit recall: 0.0024, ARHR: 0.0522
+MSE: 0.1528, Precision: 0.0171, Recall: 0.0025, F1: 0.0044Prediction: Negative  Positive
+||Not Read:[3912223   19657]
+||||||Read:[135777    343]
+
+Hidden embedding with nearest algorithm
+MSE: 0.5439, Precision: 0.1752, Recall: 0.8260, F1: 0.2890
+Prediction: Negative  Positive
+||Not Read:[3402392  529488]
+||||||Read:[ 23681 112439]
+
+iter  2
+Training err 0.35004132549328226
+Testing err 0.3439543843269348
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.1931, Hit weighted by Rank: 0.2042
+MSE: 0.1898, Precision: 0.2909, Recall: 0.2909, F1: 0.2909
+Prediction: Negative  Positive
+||Not Read:[3835362   96518]
+||||||Read:[96518 39602]
+
+User-based
+Hit recall: 0.0042, ARHR: 0.0804
+MSE: 0.1524, Precision: 0.0290, Recall: 0.0043, F1: 0.0074Prediction: Negative  Positive
+||Not Read:[3912461   19419]
+||||||Read:[135539    581]
+
+Hidden embedding with nearest algorithm
+MSE: 0.4040, Precision: 0.2083, Recall: 0.7204, F1: 0.3231
+Prediction: Negative  Positive
+||Not Read:[3559058  372822]
+||||||Read:[38056 98064]
+
+iter  3
+Training err 0.310429257689243
+Testing err 0.30727872252464294
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.1981, Hit weighted by Rank: 0.2099
+MSE: 0.1880, Precision: 0.2975, Recall: 0.2975, F1: 0.2975
+Prediction: Negative  Positive
+||Not Read:[3836258   95622]
+||||||Read:[95622 40498]
+
+User-based
+Hit recall: 0.0057, ARHR: 0.1022
+MSE: 0.1520, Precision: 0.0376, Recall: 0.0055, F1: 0.0096Prediction: Negative  Positive
+||Not Read:[3912631   19249]
+||||||Read:[135369    751]
+
+Hidden embedding with nearest algorithm
+MSE: 0.3618, Precision: 0.2220, Recall: 0.6799, F1: 0.3347
+Prediction: Negative  Positive
+||Not Read:[3607555  324325]
+||||||Read:[43578 92542]
+
+iter  4
+Training err 0.28249331186056936
+Testing err 0.28857848048210144
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2008, Hit weighted by Rank: 0.2129
+MSE: 0.1868, Precision: 0.3023, Recall: 0.3023, F1: 0.3023
+Prediction: Negative  Positive
+||Not Read:[3836906   94974]
+||||||Read:[94974 41146]
+
+User-based
+Hit recall: 0.0069, ARHR: 0.1161
+MSE: 0.1518, Precision: 0.0435, Recall: 0.0064, F1: 0.0112Prediction: Negative  Positive
+||Not Read:[3912751   19129]
+||||||Read:[135249    871]
+
+Hidden embedding with nearest algorithm
+MSE: 0.3447, Precision: 0.2287, Recall: 0.6641, F1: 0.3403
+Prediction: Negative  Positive
+||Not Read:[3627077  304803]
+||||||Read:[45727 90393]
+
+iter  5
+Training err 0.2624413756969965
+Testing err 0.27612340450286865
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2022, Hit weighted by Rank: 0.2142
+MSE: 0.1861, Precision: 0.3047, Recall: 0.3047, F1: 0.3047
+Prediction: Negative  Positive
+||Not Read:[3837239   94641]
+||||||Read:[94641 41479]
+
+User-based
+Hit recall: 0.0076, ARHR: 0.1276
+MSE: 0.1516, Precision: 0.0476, Recall: 0.0070, F1: 0.0122Prediction: Negative  Positive
+||Not Read:[3912831   19049]
+||||||Read:[135169    951]
+
+Hidden embedding with nearest algorithm
+MSE: 0.3377, Precision: 0.2317, Recall: 0.6580, F1: 0.3428
+Prediction: Negative  Positive
+||Not Read:[3634955  296925]
+||||||Read:[46552 89568]
+
+iter  6
+Training err 0.24692634774412983
+Testing err 0.2654489278793335
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2036, Hit weighted by Rank: 0.2159
+MSE: 0.1857, Precision: 0.3063, Recall: 0.3063, F1: 0.3063
+Prediction: Negative  Positive
+||Not Read:[3837451   94429]
+||||||Read:[94429 41691]
+
+User-based
+Hit recall: 0.0083, ARHR: 0.1307
+MSE: 0.1515, Precision: 0.0503, Recall: 0.0074, F1: 0.0129Prediction: Negative  Positive
+||Not Read:[3912886   18994]
+||||||Read:[135114   1006]
+
+Hidden embedding with nearest algorithm
+MSE: 0.3290, Precision: 0.2356, Recall: 0.6499, F1: 0.3459
+Prediction: Negative  Positive
+||Not Read:[3644942  286938]
+||||||Read:[47659 88461]
+
+iter  7
+Training err 0.2341918770535761
+Testing err 0.2565024197101593
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2046, Hit weighted by Rank: 0.2181
+MSE: 0.1854, Precision: 0.3075, Recall: 0.3075, F1: 0.3075
+Prediction: Negative  Positive
+||Not Read:[3837619   94261]
+||||||Read:[94261 41859]
+
+User-based
+Hit recall: 0.0085, ARHR: 0.1382
+MSE: 0.1515, Precision: 0.0522, Recall: 0.0077, F1: 0.0134Prediction: Negative  Positive
+||Not Read:[3912923   18957]
+||||||Read:[135077   1043]
+
+Hidden embedding with nearest algorithm
+MSE: 0.3209, Precision: 0.2392, Recall: 0.6411, F1: 0.3484
+Prediction: Negative  Positive
+||Not Read:[3654391  277489]
+||||||Read:[48857 87263]
+
+iter  8
+Training err 0.22398508197639677
+Testing err 0.2518893778324127
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2057, Hit weighted by Rank: 0.2191
+MSE: 0.1849, Precision: 0.3092, Recall: 0.3092, F1: 0.3092
+Prediction: Negative  Positive
+||Not Read:[3837851   94029]
+||||||Read:[94029 42091]
+
+User-based
+Hit recall: 0.0085, ARHR: 0.1365
+MSE: 0.1515, Precision: 0.0522, Recall: 0.0077, F1: 0.0134Prediction: Negative  Positive
+||Not Read:[3912923   18957]
+||||||Read:[135077   1043]
+
+Hidden embedding with nearest algorithm
+MSE: 0.3230, Precision: 0.2385, Recall: 0.6445, F1: 0.3482
+Prediction: Negative  Positive
+||Not Read:[3651746  280134]
+||||||Read:[48384 87736]
+
+iter  9
+Training err 0.21490547873274535
+Testing err 0.24530291557312012
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2057, Hit weighted by Rank: 0.2189
+MSE: 0.1847, Precision: 0.3100, Recall: 0.3100, F1: 0.3100
+Prediction: Negative  Positive
+||Not Read:[3837964   93916]
+||||||Read:[93916 42204]
+
+User-based
+Hit recall: 0.0086, ARHR: 0.1363
+MSE: 0.1515, Precision: 0.0522, Recall: 0.0077, F1: 0.0134Prediction: Negative  Positive
+||Not Read:[3912924   18956]
+||||||Read:[135076   1044]
+
+Hidden embedding with nearest algorithm
+MSE: 0.3215, Precision: 0.2394, Recall: 0.6443, F1: 0.3491
+Prediction: Negative  Positive
+||Not Read:[3653281  278599]
+||||||Read:[48417 87703]
+
+iter  10
+Training err 0.20703653356868704
+Testing err 0.23503057658672333
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2070, Hit weighted by Rank: 0.2206
+MSE: 0.1839, Precision: 0.3130, Recall: 0.3130, F1: 0.3130
+Prediction: Negative  Positive
+||Not Read:[3838367   93513]
+||||||Read:[93513 42607]
+
+User-based
+Hit recall: 0.0089, ARHR: 0.1397
+MSE: 0.1514, Precision: 0.0535, Recall: 0.0079, F1: 0.0137Prediction: Negative  Positive
+||Not Read:[3912950   18930]
+||||||Read:[135050   1070]
+
+Hidden embedding with nearest algorithm
+MSE: 0.3117, Precision: 0.2437, Recall: 0.6315, F1: 0.3517
+Prediction: Negative  Positive
+||Not Read:[3665053  266827]
+||||||Read:[50155 85965]
+
+iter  11
+Training err 0.20055620534617877
+Testing err 0.22589173913002014
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2081, Hit weighted by Rank: 0.2213
+MSE: 0.1832, Precision: 0.3158, Recall: 0.3158, F1: 0.3158
+Prediction: Negative  Positive
+||Not Read:[3838741   93139]
+||||||Read:[93139 42981]
+
+User-based
+Hit recall: 0.0092, ARHR: 0.1407
+MSE: 0.1514, Precision: 0.0545, Recall: 0.0080, F1: 0.0140Prediction: Negative  Positive
+||Not Read:[3912970   18910]
+||||||Read:[135030   1090]
+
+Hidden embedding with nearest algorithm
+MSE: 0.3024, Precision: 0.2479, Recall: 0.6190, F1: 0.3540
+Prediction: Negative  Positive
+||Not Read:[3676219  255661]
+||||||Read:[51857 84263]
+
+iter  12
+Training err 0.19474563194927905
+Testing err 0.22094911336898804
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2082, Hit weighted by Rank: 0.2225
+MSE: 0.1831, Precision: 0.3158, Recall: 0.3158, F1: 0.3158
+Prediction: Negative  Positive
+||Not Read:[3838753   93127]
+||||||Read:[93127 42993]
+
+User-based
+Hit recall: 0.0090, ARHR: 0.1378
+MSE: 0.1514, Precision: 0.0536, Recall: 0.0079, F1: 0.0137Prediction: Negative  Positive
+||Not Read:[3912951   18929]
+||||||Read:[135049   1071]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2986, Precision: 0.2500, Recall: 0.6155, F1: 0.3556
+Prediction: Negative  Positive
+||Not Read:[3680541  251339]
+||||||Read:[52338 83782]
+
+iter  13
+Training err 0.18977250738447216
+Testing err 0.21717920899391174
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2083, Hit weighted by Rank: 0.2219
+MSE: 0.1829, Precision: 0.3169, Recall: 0.3169, F1: 0.3169
+Prediction: Negative  Positive
+||Not Read:[3838895   92985]
+||||||Read:[92985 43135]
+
+User-based
+Hit recall: 0.0091, ARHR: 0.1383
+MSE: 0.1514, Precision: 0.0538, Recall: 0.0079, F1: 0.0138Prediction: Negative  Positive
+||Not Read:[3912956   18924]
+||||||Read:[135044   1076]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2959, Precision: 0.2516, Recall: 0.6134, F1: 0.3569
+Prediction: Negative  Positive
+||Not Read:[3683547  248333]
+||||||Read:[52618 83502]
+
+iter  14
+Training err 0.1849118034954259
+Testing err 0.20392534136772156
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2090, Hit weighted by Rank: 0.2225
+MSE: 0.1820, Precision: 0.3201, Recall: 0.3201, F1: 0.3201
+Prediction: Negative  Positive
+||Not Read:[3839336   92544]
+||||||Read:[92544 43576]
+
+User-based
+Hit recall: 0.0092, ARHR: 0.1355
+MSE: 0.1514, Precision: 0.0535, Recall: 0.0079, F1: 0.0137Prediction: Negative  Positive
+||Not Read:[3912950   18930]
+||||||Read:[135050   1070]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2769, Precision: 0.2609, Recall: 0.5833, F1: 0.3606
+Prediction: Negative  Positive
+||Not Read:[3706996  224884]
+||||||Read:[56726 79394]
+
+iter  15
+Training err 0.17995627588627613
+Testing err 0.1852092742919922
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2110, Hit weighted by Rank: 0.2276
+MSE: 0.1813, Precision: 0.3229, Recall: 0.3229, F1: 0.3229
+Prediction: Negative  Positive
+||Not Read:[3839713   92167]
+||||||Read:[92167 43953]
+
+User-based
+Hit recall: 0.0101, ARHR: 0.1476
+MSE: 0.1512, Precision: 0.0592, Recall: 0.0087, F1: 0.0152Prediction: Negative  Positive
+||Not Read:[3913064   18816]
+||||||Read:[134936   1184]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2366, Precision: 0.2833, Recall: 0.5018, F1: 0.3622
+Prediction: Negative  Positive
+||Not Read:[3759109  172771]
+||||||Read:[67817 68303]
+
+iter  16
+Training err 0.1811275749090977
+Testing err 0.17705173790454865
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2108, Hit weighted by Rank: 0.2276
+MSE: 0.1812, Precision: 0.3231, Recall: 0.3231, F1: 0.3231
+Prediction: Negative  Positive
+||Not Read:[3839747   92133]
+||||||Read:[92133 43987]
+
+User-based
+Hit recall: 0.0107, ARHR: 0.1526
+MSE: 0.1511, Precision: 0.0622, Recall: 0.0091, F1: 0.0159Prediction: Negative  Positive
+||Not Read:[3913124   18756]
+||||||Read:[134876   1244]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2221, Precision: 0.2928, Recall: 0.4660, F1: 0.3597
+Prediction: Negative  Positive
+||Not Read:[3778705  153175]
+||||||Read:[72691 63429]
+
+iter  17
+Training err 0.18117012036085692
+Testing err 0.1692298799753189
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2111, Hit weighted by Rank: 0.2279
+MSE: 0.1808, Precision: 0.3244, Recall: 0.3244, F1: 0.3244
+Prediction: Negative  Positive
+||Not Read:[3839922   91958]
+||||||Read:[91958 44162]
+
+User-based
+Hit recall: 0.0111, ARHR: 0.1555
+MSE: 0.1510, Precision: 0.0646, Recall: 0.0095, F1: 0.0166Prediction: Negative  Positive
+||Not Read:[3913172   18708]
+||||||Read:[134828   1292]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2086, Precision: 0.3031, Recall: 0.4297, F1: 0.3555
+Prediction: Negative  Positive
+||Not Read:[3797376  134504]
+||||||Read:[77626 58494]
+
+iter  18
+Training err 0.17912604522367107
+Testing err 0.16523243486881256
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2107, Hit weighted by Rank: 0.2276
+MSE: 0.1811, Precision: 0.3235, Recall: 0.3235, F1: 0.3235
+Prediction: Negative  Positive
+||Not Read:[3839798   92082]
+||||||Read:[92082 44038]
+
+User-based
+Hit recall: 0.0117, ARHR: 0.1656
+MSE: 0.1508, Precision: 0.0684, Recall: 0.0101, F1: 0.0175Prediction: Negative  Positive
+||Not Read:[3913249   18631]
+||||||Read:[134751   1369]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2018, Precision: 0.3094, Recall: 0.4123, F1: 0.3535
+Prediction: Negative  Positive
+||Not Read:[3806608  125272]
+||||||Read:[80001 56119]
+
+iter  19
+Training err 0.17618705665270956
+Testing err 0.17018906772136688
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2107, Hit weighted by Rank: 0.2287
+MSE: 0.1816, Precision: 0.3216, Recall: 0.3216, F1: 0.3216
+Prediction: Negative  Positive
+||Not Read:[3839533   92347]
+||||||Read:[92347 43773]
+
+User-based
+Hit recall: 0.0119, ARHR: 0.1707
+MSE: 0.1508, Precision: 0.0697, Recall: 0.0102, F1: 0.0179Prediction: Negative  Positive
+||Not Read:[3913274   18606]
+||||||Read:[134726   1394]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2158, Precision: 0.2988, Recall: 0.4547, F1: 0.3606
+Prediction: Negative  Positive
+||Not Read:[3786668  145212]
+||||||Read:[74231 61889]
+
+iter  20
+Training err 0.17686805318317628
+Testing err 0.18024824559688568
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2099, Hit weighted by Rank: 0.2255
+MSE: 0.1820, Precision: 0.3201, Recall: 0.3201, F1: 0.3201
+Prediction: Negative  Positive
+||Not Read:[3839330   92550]
+||||||Read:[92550 43570]
+
+User-based
+Hit recall: 0.0108, ARHR: 0.1589
+MSE: 0.1510, Precision: 0.0640, Recall: 0.0094, F1: 0.0164Prediction: Negative  Positive
+||Not Read:[3913160   18720]
+||||||Read:[134840   1280]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2435, Precision: 0.2803, Recall: 0.5226, F1: 0.3649
+Prediction: Negative  Positive
+||Not Read:[3749240  182640]
+||||||Read:[64990 71130]
+
+iter  21
+Training err 0.17274224659378212
+Testing err 0.19211813807487488
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2103, Hit weighted by Rank: 0.2258
+MSE: 0.1824, Precision: 0.3185, Recall: 0.3185, F1: 0.3185
+Prediction: Negative  Positive
+||Not Read:[3839110   92770]
+||||||Read:[92770 43350]
+
+User-based
+Hit recall: 0.0103, ARHR: 0.1514
+MSE: 0.1511, Precision: 0.0607, Recall: 0.0089, F1: 0.0156Prediction: Negative  Positive
+||Not Read:[3913095   18785]
+||||||Read:[134905   1215]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2696, Precision: 0.2661, Recall: 0.5770, F1: 0.3642
+Prediction: Negative  Positive
+||Not Read:[3715242  216638]
+||||||Read:[57573 78547]
+
+iter  22
+Training err 0.16672413890343746
+Testing err 0.19452019035816193
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2099, Hit weighted by Rank: 0.2248
+MSE: 0.1823, Precision: 0.3189, Recall: 0.3189, F1: 0.3189
+Prediction: Negative  Positive
+||Not Read:[3839168   92712]
+||||||Read:[92712 43408]
+
+User-based
+Hit recall: 0.0099, ARHR: 0.1400
+MSE: 0.1512, Precision: 0.0583, Recall: 0.0086, F1: 0.0149Prediction: Negative  Positive
+||Not Read:[3913045   18835]
+||||||Read:[134955   1165]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2826, Precision: 0.2594, Recall: 0.5992, F1: 0.3620
+Prediction: Negative  Positive
+||Not Read:[3698994  232886]
+||||||Read:[54557 81563]
+
+iter  23
+Training err 0.16069349012287837
+Testing err 0.18581649661064148
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2108, Hit weighted by Rank: 0.2248
+MSE: 0.1814, Precision: 0.3223, Recall: 0.3223, F1: 0.3223
+Prediction: Negative  Positive
+||Not Read:[3839638   92242]
+||||||Read:[92242 43878]
+
+User-based
+Hit recall: 0.0098, ARHR: 0.1364
+MSE: 0.1513, Precision: 0.0561, Recall: 0.0082, F1: 0.0144Prediction: Negative  Positive
+||Not Read:[3913002   18878]
+||||||Read:[134998   1122]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2775, Precision: 0.2621, Recall: 0.5914, F1: 0.3632
+Prediction: Negative  Positive
+||Not Read:[3705271  226609]
+||||||Read:[55622 80498]
+
+iter  24
+Training err 0.15519647956415777
+Testing err 0.17165857553482056
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2124, Hit weighted by Rank: 0.2277
+MSE: 0.1808, Precision: 0.3246, Recall: 0.3246, F1: 0.3246
+Prediction: Negative  Positive
+||Not Read:[3839938   91942]
+||||||Read:[91942 44178]
+
+User-based
+Hit recall: 0.0099, ARHR: 0.1391
+MSE: 0.1513, Precision: 0.0566, Recall: 0.0083, F1: 0.0145Prediction: Negative  Positive
+||Not Read:[3913012   18868]
+||||||Read:[134988   1132]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2537, Precision: 0.2758, Recall: 0.5509, F1: 0.3676
+Prediction: Negative  Positive
+||Not Read:[3734983  196897]
+||||||Read:[61126 74994]
+
+iter  25
+Training err 0.15210558710116073
+Testing err 0.16106434166431427
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2114, Hit weighted by Rank: 0.2271
+MSE: 0.1806, Precision: 0.3254, Recall: 0.3254, F1: 0.3254
+Prediction: Negative  Positive
+||Not Read:[3840059   91821]
+||||||Read:[91821 44299]
+
+User-based
+Hit recall: 0.0102, ARHR: 0.1441
+MSE: 0.1512, Precision: 0.0583, Recall: 0.0086, F1: 0.0149Prediction: Negative  Positive
+||Not Read:[3913045   18835]
+||||||Read:[134955   1165]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2312, Precision: 0.2898, Recall: 0.5014, F1: 0.3673
+Prediction: Negative  Positive
+||Not Read:[3764598  167282]
+||||||Read:[67875 68245]
+
+iter  26
+Training err 0.149368776802161
+Testing err 0.15515181422233582
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2124, Hit weighted by Rank: 0.2291
+MSE: 0.1807, Precision: 0.3249, Recall: 0.3249, F1: 0.3249
+Prediction: Negative  Positive
+||Not Read:[3839979   91901]
+||||||Read:[91901 44219]
+
+User-based
+Hit recall: 0.0104, ARHR: 0.1478
+MSE: 0.1512, Precision: 0.0593, Recall: 0.0087, F1: 0.0152Prediction: Negative  Positive
+||Not Read:[3913067   18813]
+||||||Read:[134933   1187]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2161, Precision: 0.3005, Recall: 0.4627, F1: 0.3644
+Prediction: Negative  Positive
+||Not Read:[3785270  146610]
+||||||Read:[73131 62989]
+
+iter  27
+Training err 0.14777563689071568
+Testing err 0.15155379474163055
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2106, Hit weighted by Rank: 0.2264
+MSE: 0.1811, Precision: 0.3233, Recall: 0.3233, F1: 0.3233
+Prediction: Negative  Positive
+||Not Read:[3839766   92114]
+||||||Read:[92114 44006]
+
+User-based
+Hit recall: 0.0105, ARHR: 0.1481
+MSE: 0.1511, Precision: 0.0602, Recall: 0.0088, F1: 0.0154Prediction: Negative  Positive
+||Not Read:[3913084   18796]
+||||||Read:[134916   1204]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2099, Precision: 0.3056, Recall: 0.4464, F1: 0.3628
+Prediction: Negative  Positive
+||Not Read:[3793790  138090]
+||||||Read:[75357 60763]
+
+iter  28
+Training err 0.1458677338478712
+Testing err 0.15098713338375092
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2117, Hit weighted by Rank: 0.2293
+MSE: 0.1813, Precision: 0.3228, Recall: 0.3228, F1: 0.3228
+Prediction: Negative  Positive
+||Not Read:[3839703   92177]
+||||||Read:[92177 43943]
+
+User-based
+Hit recall: 0.0107, ARHR: 0.1535
+MSE: 0.1511, Precision: 0.0622, Recall: 0.0091, F1: 0.0159Prediction: Negative  Positive
+||Not Read:[3913124   18756]
+||||||Read:[134876   1244]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2090, Precision: 0.3065, Recall: 0.4445, F1: 0.3628
+Prediction: Negative  Positive
+||Not Read:[3794984  136896]
+||||||Read:[75615 60505]
+
+iter  29
+Training err 0.14521489053182654
+Testing err 0.15125620365142822
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2113, Hit weighted by Rank: 0.2277
+MSE: 0.1814, Precision: 0.3223, Recall: 0.3223, F1: 0.3223
+Prediction: Negative  Positive
+||Not Read:[3839630   92250]
+||||||Read:[92250 43870]
+
+User-based
+Hit recall: 0.0107, ARHR: 0.1543
+MSE: 0.1511, Precision: 0.0625, Recall: 0.0092, F1: 0.0160Prediction: Negative  Positive
+||Not Read:[3913131   18749]
+||||||Read:[134869   1251]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2156, Precision: 0.3011, Recall: 0.4624, F1: 0.3647
+Prediction: Negative  Positive
+||Not Read:[3785781  146099]
+||||||Read:[73183 62937]
+
+iter  30
+Training err 0.14341977411886947
+Testing err 0.15197430551052094
+
+Evaluation Scores:
+
+Item-based
+Hit: 0.2121, Hit weighted by Rank: 0.2282
+MSE: 0.1813, Precision: 0.3228, Recall: 0.3228, F1: 0.3228
+Prediction: Negative  Positive
+||Not Read:[3839696   92184]
+||||||Read:[92184 43936]
+
+User-based
+Hit recall: 0.0106, ARHR: 0.1525
+MSE: 0.1511, Precision: 0.0619, Recall: 0.0091, F1: 0.0159Prediction: Negative  Positive
+||Not Read:[3913118   18762]
+||||||Read:[134882   1238]
+
+Hidden embedding with nearest algorithm
+MSE: 0.2234, Precision: 0.2949, Recall: 0.4811, F1: 0.3657
+Prediction: Negative  Positive
+||Not Read:[3775328  156552]
+||||||Read:[70639 65481]

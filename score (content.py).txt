@@ -1,0 +1,130 @@
+===========
+item-based collaborative recommendation:
+Hit recall: 0.0847, ARHR: 2.2023
+MSE: 0.1317, Precision: 0.5490, Recall: 0.0808, F1: 0.1408
+*******
+MSE: 0.1313, Precision: 0.5582, Recall: 0.0836, F1: 0.1453
+Prediction: Negative  Positive
+||Not Read:[3923085    8988]
+||||||Read:[124570  11357]
+
+===========
+user-based collaborative recommendation:
+Hit recall: 0.0004, ARHR: 0.0057
+MSE: 0.1532, Precision: 0.0019, Recall: 0.0003, F1: 0.0005
+*******
+MSE: 0.9165, Precision: 0.0118, Recall: 0.0710, F1: 0.0203
+Prediction: Negative  Positive
+||Not Read:[3126257  805816]
+||||||Read:[126273   9654]
+
+===========
+Content-based nearest recommendation with category matrix (about 20min):
+Hit recall: 0.0137, ARHR: 0.3194
+MSE: 0.1499, Precision: 0.0880, Recall: 0.0129, F1: 0.0226
+*******
+MSE: 1.4928, Precision: 0.0587, Recall: 0.6758, F1: 0.1079
+Prediction: Negative  Positive
+||Not Read:[2457999 1474074]
+||||||Read:[44070 91857]
+
+===========
+Content-based nearest recommendation with title matrix (about 20min):
+Hit recall: 0.0177, ARHR: 0.4424
+MSE: 0.1488, Precision: 0.1137, Recall: 0.0167, F1: 0.0292
+*******
+MSE: 2.4284, Precision: 0.0424, Recall: 0.7954, F1: 0.0805
+Prediction: Negative  Positive
+||Not Read:[1490214 2441859]
+||||||Read:[ 27812 108115]
+
+===========
+Content-based nearest recommendation with click matrix (about 20min):
+Hit recall: 0.0846, ARHR: 2.1944
+MSE: 0.1318, Precision: 0.5473, Recall: 0.0805, F1: 0.1404
+*******
+MSE: 0.1326, Precision: 0.5185, Recall: 0.1140, F1: 0.1869
+Prediction: Negative  Positive
+||Not Read:[3917685   14388]
+||||||Read:[120432  15495]
+
+===========
+Content-based nearest recommendation with active time matrix (about 20min):
+Hit recall: 0.0808, ARHR: 2.0888
+MSE: 0.1327, Precision: 0.5249, Recall: 0.0772, F1: 0.1347
+*******
+MSE: 0.8062, Precision: 0.1341, Recall: 0.9218, F1: 0.2341
+Prediction: Negative  Positive
+||Not Read:[3122802  809271]
+||||||Read:[ 10629 125298]
+
+===========
+category (content-based) + item-based collaborative on active time:
+Hit recall: 0.0808, ARHR: 2.0884
+MSE: 0.1327, Precision: 0.5251, Recall: 0.0773, F1: 0.1347
+*******
+MSE: 0.8078, Precision: 0.1339, Recall: 0.9220, F1: 0.2338
+Prediction: Negative  Positive
+||Not Read:[3121124  810949]
+||||||Read:[ 10599 125328]
+
+===========
+item-based collaborative on active time and click:
+Hit recall: 0.0847, ARHR: 2.1793
+MSE: 0.1318, Precision: 0.5482, Recall: 0.0807, F1: 0.1406
+*******
+MSE: 0.1963, Precision: 0.3307, Recall: 0.4576, F1: 0.3840
+Prediction: Negative  Positive
+||Not Read:[3806182  125891]
+||||||Read:[73722 62205]
+
+
+
+
+item-based
+
+MSE is 0.1311
+Precision is 0.5532
+Recall is 0.0816
+F1 score is 0.1422
+Prediction: Negative  Positive
+||Not Read:[3923660    8925]
+||||||Read:[124366  11049]
+[Finished in 73.4s]
+
+true:
+MSE is 0.1324
+Precision is 0.5408
+Recall is 0.0811
+F1 score is 0.1410
+Prediction: Negative  Positive
+||Not Read:[3922267    9385]
+||||||Read:[125294  11054]
+[Finished in 1764.0s]
+
+
+
+user-based
+
+MSE is 0.9229
+Precision is 0.0114
+Recall is 0.0688
+F1 score is 0.0195
+Prediction: Negative  Positive
+||Not Read:[3120032  811917]
+||||||Read:[126697   9354]
+[Finished in 60.9s]
+
+true:
+prediction 50% finished
+MSE is 0.9186
+Precision is 0.0121
+Recall is 0.0728
+F1 score is 0.0207
+Prediction: Negative  Positive
+||Not Read:[3123925  808537]
+||||||Read:[125673   9865]
+[Finished in 141.2s]
+
+Hidden embedding with nearest algorithm
+MSE: 0.4111, Precision: 0.2103, Recall: 0.7521, F1: 0.3286

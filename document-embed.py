@@ -39,18 +39,20 @@ class module(nn.Module):
 		# self.embedding=nn.Embedding(category_num,dimension)
 		self.linear_c=nn.Linear(user_num,dimension,False)
 		self.linear_t=nn.Linear(user_num,dimension,False)
-		self.linear_ca=nn.Linear(user_num,dimension,False)
-		self.gru=nn.GRU(dimension*3,dimension,num_layers=2,bias=False)
+		# self.linear_ca=nn.Linear(user_num,dimension,False)
+		# self.gru=nn.GRU(dimension*2,dimension,num_layers=2,bias=False)
+		self.gru=nn.Linear(dimension*2,dimension,False)
 		# self.softlinear=nn.Linear(dimension,user_num,False)
 		
 	def forward(self,click,time,category,target,location):
 		click=self.linear_c(click)
 		time=self.linear_t(time)
-		category=self.linear_ca(category)
+		# category=self.linear_ca(category)
 		# category=self.embedding(category)
-		gru_input=torch.cat((click,time,category),1).unsqueeze(0)
-		# gru_input=torch.cat((click,time),1).unsqueeze(0)
-		hidden,_=self.gru(gru_input)
+		# gru_input=torch.cat((click,time,category),1).unsqueeze(0)
+		gru_input=torch.cat((click,time),1).unsqueeze(0)
+		# hidden,_=self.gru(gru_input)
+		hidden=self.gru(gru_input)
 		hidden=hidden.squeeze(0)
 
 		pred=nn.Tanh()(hidden)
@@ -78,7 +80,8 @@ class embedding:
 		self.content=content
 		
 		self.category=content.category_matrix(content.data)
-		self.click=content.representation('click')
+		# self.click=content.representation('click')
+		self.click=content.question.transpose()
 		self.time=content.representation('active_time')
 
 		self.question=np.transpose(content.question)
@@ -156,6 +159,10 @@ class embedding:
 
 
 		pred=self.content.predict(hidden,'item', quick=True)
+		r,arhr, MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred.transpose(),method="user-rank")
+		print("Hit recall: {:.4f}, ARHR: {:.4f}".format(r,arhr))
+		print("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}".format(MSE,precision,recall,f1))
+		print("*******")
 		MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="error")
 		print("Hidden embedding with nearest algorithm")
 		print("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
@@ -204,8 +211,6 @@ class embedding:
 				self.module_optimizer.step()
 				num+=1
 
-			if num in [30,50,80]:
-				print(str(int(num*self.batch_size/20344))+"%")
 			print("Trainig err "+str(sum_err/(num)))
 			# self.save()
 			if self.log!="":
@@ -222,7 +227,7 @@ if __name__ == '__main__':
 	from content import *
 	dimension=1000
 	batch_size=128
-	max_iter=20
+	max_iter=30
 	lr=0.01
 
 	path="active1000"

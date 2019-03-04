@@ -250,13 +250,13 @@ class content:
 
 		score=(question*num)@cosine_sim
 
-		prediction=np.zeros(question.shape)
-		prediction.fill(-1)
-		prediction[(score>0).nonzero()]=1
+		# prediction=np.zeros(question.shape)
+		# prediction.fill(-1)
+		# prediction[(score>0).nonzero()]=1
 		if user:
-			return prediction.transpose()
+			return score.transpose()
 		else:
-			return prediction
+			return score
 
 
 
@@ -283,14 +283,19 @@ class content:
 
 
 
-	def evaluate(self,pred,method):
+	def evaluate(self,p,method):
 		"""
-		input size: item x user
+		input size:
+		when method="error": user x item
+		when method="x rank": item x user
 		when method="error", input should be a prediction
 		when method="rank", input should be scores for each user
 		when method="user-rank", input should be standarized for each item
 		"""
 		if method=="error":
+			pred=np.zeros(p.shape)
+			pred.fill(-1)
+			pred[(p>0).nonzero()]=1
 			pred = pred[self.location].flatten()
 			key = self.key[self.location].flatten()
 			return mean_squared_error(key, pred), precision_score(key, pred), recall_score(key, pred), f1_score(key,pred), confusion_matrix(key,pred)
@@ -302,7 +307,7 @@ class content:
 			read=(key==1).sum(1).reshape(key.shape[0],1)
 			l=(read==0).nonzero()
 			num=(read==0).sum()
-			pred=np.transpose(pred)
+			pred=np.transpose(p).copy()
 			pred[self.counter]-=1000
 			pred=np.transpose(pred)
 			ranking=(-pred).argsort().argsort()
@@ -335,13 +340,13 @@ class content:
 			read=(key==1).sum(1).reshape(key.shape[0],1)
 			l=(read==0).nonzero()
 			num=(read==0).sum()
-			pred=pred.transpose()
+			pred=p.transpose().copy()
 			pred[self.counter]-=1000
 			ranking=(-pred).argsort().argsort()
 			pred1=np.zeros(pred.shape)
-			pred1[ranking<read]=1
+			pred1[ranking<20]=1
 			pred.fill(-1)
-			pred[ranking<read]=1
+			pred[ranking<20]=1
 
 			tp=(pred1==key).sum(1)
 			read[l]=1
