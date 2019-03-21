@@ -19,7 +19,7 @@ Prediction: Negative  Positive
 ||||||Read:[126273   9654]
 
 ===========
-Content-based nearest recommendation with category matrix (about 20min):
+Content-based nearest recommendation with TF-IDF category matrix (about 20min):
 Hit recall: 0.0137, ARHR: 0.3194
 MSE: 0.1499, Precision: 0.0880, Recall: 0.0129, F1: 0.0226
 *******
@@ -27,6 +27,16 @@ MSE: 1.4928, Precision: 0.0587, Recall: 0.6758, F1: 0.1079
 Prediction: Negative  Positive
 ||Not Read:[2457999 1474074]
 ||||||Read:[44070 91857]
+
+===========
+Content-based nearest recommendation with category matrix (about 20min):
+Hit recall: 0.0119, ARHR: 0.2864
+MSE: 0.1500, Precision: 0.0772, Recall: 0.0114, F1: 0.0198
+*******
+MSE: 2.3997, Precision: 0.0415, Recall: 0.7689, F1: 0.0788
+Prediction: Negative  Positive
+||Not Read:[1523212 2409133]
+||||||Read:[ 31344 104311]
 
 ===========
 Content-based nearest recommendation with title matrix (about 20min):
@@ -60,13 +70,13 @@ Prediction: Negative  Positive
 
 ===========
 category (content-based) + item-based collaborative on active time:
-Hit recall: 0.0808, ARHR: 2.0884
-MSE: 0.1327, Precision: 0.5251, Recall: 0.0773, F1: 0.1347
+Hit recall: 0.0818, ARHR: 2.0704
+MSE: 0.1325, Precision: 0.5268, Recall: 0.0776, F1: 0.1352
 *******
-MSE: 0.8078, Precision: 0.1339, Recall: 0.9220, F1: 0.2338
+MSE: 0.8759, Precision: 0.1253, Recall: 0.9297, F1: 0.2209
 Prediction: Negative  Positive
-||Not Read:[3121124  810949]
-||||||Read:[ 10599 125328]
+||Not Read:[3050925  881245]
+||||||Read:[  9543 126287]
 
 ===========
 item-based collaborative on active time and click:

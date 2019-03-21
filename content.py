@@ -320,7 +320,11 @@ class content:
 			tp=(pred1==key).sum(1)
 			read[l]=1
 			read=read.reshape(-1)
+			recommended=(pred1==1).sum(1).reshape(-1,1)
+			recommended[l]=1
+			recommended=recommended.reshape(-1)
 			recall=(tp/read).sum()/(key.shape[0]-num)
+			ctr=(tp/recommended).sum()/(key.shape[0]-num)
 			
 			score=((pred1==key)/(ranking+1)).sum(1)
 			total_correct=(((key==1)/((np.logical_not(key==1)).argsort().argsort()+1)).sum(1)).reshape(key.shape[0],1)
@@ -331,7 +335,7 @@ class content:
 			pred=pred[self.location].flatten()
 			key=self.key[self.location].flatten()
 
-			return recall, arhr, mean_squared_error(key, pred), precision_score(key, pred), recall_score(key, pred), f1_score(key,pred), confusion_matrix(key,pred)
+			return recall, ctr, arhr, mean_squared_error(key, pred), precision_score(key, pred), recall_score(key, pred), f1_score(key,pred), confusion_matrix(key,pred)
 
 
 		elif method=="user-rank":
@@ -352,10 +356,11 @@ class content:
 			read[l]=1
 			read=read.reshape(-1)
 			recall=(tp/read).sum()/(key.shape[0]-num)
+			ctr=(tp/20).sum()/(key.shape[0]-num)
 
 			arhr=((pred1==key)/(ranking+1)).sum()/(key.shape[0]-num)
 
 			pred=pred[self.location].flatten()
 			key=self.key[self.location].flatten()
 			
-			return recall, arhr, mean_squared_error(key, pred), precision_score(key, pred), recall_score(key, pred), f1_score(key,pred), confusion_matrix(key,pred)
+			return recall, ctr, arhr, mean_squared_error(key, pred), precision_score(key, pred), recall_score(key, pred), f1_score(key,pred), confusion_matrix(key,pred)

@@ -120,7 +120,7 @@ class embedding:
 
 		pred=(pred-np.mean(pred,axis=1).reshape(-1,1))/np.std(pred,axis=1).reshape(-1,1)
 
-		r,arhr, MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="rank")
+		r,ctr,arhr, MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="rank")
 
 		print("\nEvaluation Scores:")
 
@@ -141,9 +141,9 @@ class embedding:
 				log.write("||||||Read:{}\n".format(confusion_matrix[1]))
 
 
-		r,arhr, MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="user-rank")
+		r,ctr,arhr, MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="user-rank")
 		print("User-based")
-		print("Hit recall: {:.4f}, ARHR: {:.4f}".format(r,arhr))
+		print("Hit recall: {:.4f}, CTR: {:.4f}, ARHR: {:.4f}".format(r,ctr,arhr))
 		print("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}".format(MSE,precision,recall,f1))
 		print("Prediction: Negative  Positive")
 		print("||Not Read:{}".format(confusion_matrix[0]))
@@ -151,18 +151,24 @@ class embedding:
 		if self.log!="":
 			with open(self.log,"a") as log:
 				log.write("\nUser-based\n")
-				log.write("Hit recall: {:.4f}, ARHR: {:.4f}\n".format(r,arhr))
-				log.write("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}".format(MSE,precision,recall,f1))
+				log.write("Hit recall: {:.4f}, CTR: {.4f}, ARHR: {:.4f}\n".format(r,ctr,arhr))
+				log.write("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
 				log.write("Prediction: Negative  Positive\n")
 				log.write("||Not Read:{}\n".format(confusion_matrix[0]))
 				log.write("||||||Read:{}\n".format(confusion_matrix[1]))
 
 
 		pred=self.content.predict(hidden,'item', quick=True)
-		r,arhr, MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred.transpose(),method="user-rank")
-		print("Hit recall: {:.4f}, ARHR: {:.4f}".format(r,arhr))
+		r,ctr,arhr, MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred.transpose(),method="user-rank")
+		print("Hit recall: {:.4f}, CTR: {:.4f}, ARHR: {:.4f}".format(r,ctr,arhr))
 		print("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}".format(MSE,precision,recall,f1))
 		print("*******")
+		if self.log!="":
+			with open(self.log,"a") as log:
+				log.write("\nHidden embedding with nearest algorithm\n")
+				log.write("Hit recall: {:.4f}, CTR: {:.4f}, ARHR: {:.4f}\n".format(r,ctr,arhr))
+				log.write("(Ranking) MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
+
 		MSE, precision, recall, f1, confusion_matrix=self.content.evaluate(pred,method="error")
 		print("Hidden embedding with nearest algorithm")
 		print("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
@@ -171,7 +177,6 @@ class embedding:
 		print("||||||Read:{}\n".format(confusion_matrix[1]))
 		if self.log!="":
 			with open(self.log,"a") as log:
-				log.write("\nHidden embedding with nearest algorithm\n")
 				log.write("MSE: {:.4f}, Precision: {:.4f}, Recall: {:.4f}, F1: {:.4f}\n".format(MSE,precision,recall,f1))
 				log.write("Prediction: Negative  Positive\n")
 				log.write("||Not Read:{}\n".format(confusion_matrix[0]))
