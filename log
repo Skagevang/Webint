@@ -1,865 +1,865 @@
-Testing err 1.3254855871200562
+Testing err 1.3194648027420044
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.0663, Hit weighted by Rank: 0.0673
-MSE: 0.2072, Precision: 0.2229, Recall: 0.2229, F1: 0.2229
+Hit: 0.0693, CTR: 0.0693, Hit weighted by Rank: 0.0688
+MSE: 0.2086, Precision: 0.2203, Recall: 0.2203, F1: 0.2203
 Prediction: Negative  Positive
-||Not Read:[3827098  105340]
-||||||Read:[105340  30222]
+||Not Read:[3825848  106090]
+||||||Read:[106090  29972]
 
 User-based
-Hit recall: 0.0008, ARHR: 0.0185
-MSE: 0.1528, Precision: 0.0053, Recall: 0.0008, F1: 0.0014
+Hit recall: 0.0007, CTR: 0.0050, ARHR: 0.0164
+MSE: 0.1533, Precision: 0.0050, Recall: 0.0007, F1: 0.0013
 Prediction: Negative  Positive
-||Not Read:[3912545   19893]
-||||||Read:[135455    107]
+||Not Read:[3912037   19901]
+||||||Read:[135963     99]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0757, ARHR: 1.9761
-(Ranking) MSE: 0.1336, Precision: 0.4924, Recall: 0.0727, F1: 0.1266
-MSE: 0.6825, Precision: 0.1493, Recall: 0.8774, F1: 0.2552
+Hit recall: 0.0764, CTR: 0.4976, ARHR: 1.9445
+(Ranking) MSE: 0.1339, Precision: 0.4976, Recall: 0.0731, F1: 0.1275
+MSE: 0.6620, Precision: 0.1527, Recall: 0.8678, F1: 0.2597
 Prediction: Negative  Positive
-||Not Read:[3254959  677479]
-||||||Read:[ 16620 118942]
+||Not Read:[3276642  655296]
+||||||Read:[ 17984 118078]
 
 iter  1
-Training err 0.5391988496284393
-Testing err 0.4797978103160858
+Training err 0.5392000609540246
+Testing err 0.4787057638168335
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.1794, Hit weighted by Rank: 0.1878
-MSE: 0.1961, Precision: 0.2646, Recall: 0.2646, F1: 0.2646
+Hit: 0.1840, CTR: 0.1840, Hit weighted by Rank: 0.1911
+MSE: 0.1971, Precision: 0.2633, Recall: 0.2633, F1: 0.2633
 Prediction: Negative  Positive
-||Not Read:[3832740   99698]
-||||||Read:[99698 35864]
+||Not Read:[3831707  100231]
+||||||Read:[100231  35831]
 
 User-based
-Hit recall: 0.0023, ARHR: 0.0455
-MSE: 0.1523, Precision: 0.0164, Recall: 0.0024, F1: 0.0042
+Hit recall: 0.0022, CTR: 0.0152, ARHR: 0.0436
+MSE: 0.1529, Precision: 0.0152, Recall: 0.0022, F1: 0.0039
 Prediction: Negative  Positive
-||Not Read:[3912767   19671]
-||||||Read:[135233    329]
+||Not Read:[3912243   19695]
+||||||Read:[135757    305]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0784, ARHR: 2.0145
-(Ranking) MSE: 0.1331, Precision: 0.5039, Recall: 0.0743, F1: 0.1296
-MSE: 0.5354, Precision: 0.1762, Recall: 0.8209, F1: 0.2901
+Hit recall: 0.0766, CTR: 0.4929, ARHR: 1.9532
+(Ranking) MSE: 0.1341, Precision: 0.4929, Recall: 0.0724, F1: 0.1263
+MSE: 0.5352, Precision: 0.1769, Recall: 0.8211, F1: 0.2910
 Prediction: Negative  Positive
-||Not Read:[3412180  520258]
-||||||Read:[ 24280 111282]
+||Not Read:[3411981  519957]
+||||||Read:[ 24341 111721]
 
 iter  2
-Training err 0.3492902877400834
-Testing err 0.338351845741272
+Training err 0.34968625090989935
+Testing err 0.34093376994132996
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.1926, Hit weighted by Rank: 0.2049
-MSE: 0.1890, Precision: 0.2912, Recall: 0.2912, F1: 0.2912
+Hit: 0.1975, CTR: 0.1975, Hit weighted by Rank: 0.2088
+MSE: 0.1900, Precision: 0.2899, Recall: 0.2899, F1: 0.2899
 Prediction: Negative  Positive
-||Not Read:[3836349   96089]
-||||||Read:[96089 39473]
+||Not Read:[3835318   96620]
+||||||Read:[96620 39442]
 
 User-based
-Hit recall: 0.0044, ARHR: 0.0819
-MSE: 0.1518, Precision: 0.0295, Recall: 0.0044, F1: 0.0076
+Hit recall: 0.0042, CTR: 0.0274, ARHR: 0.0742
+MSE: 0.1524, Precision: 0.0273, Recall: 0.0040, F1: 0.0070
 Prediction: Negative  Positive
-||Not Read:[3913028   19410]
-||||||Read:[134972    590]
+||Not Read:[3912485   19453]
+||||||Read:[135515    547]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0748, ARHR: 1.9502
-(Ranking) MSE: 0.1341, Precision: 0.4799, Recall: 0.0708, F1: 0.1234
-MSE: 0.3990, Precision: 0.2098, Recall: 0.7203, F1: 0.3249
+Hit recall: 0.0730, CTR: 0.4679, ARHR: 1.9021
+(Ranking) MSE: 0.1351, Precision: 0.4679, Recall: 0.0688, F1: 0.1199
+MSE: 0.4036, Precision: 0.2088, Recall: 0.7232, F1: 0.3241
 Prediction: Negative  Positive
-||Not Read:[3564583  367855]
-||||||Read:[37911 97651]
+||Not Read:[3559164  372774]
+||||||Read:[37663 98399]
 
 iter  3
-Training err 0.30975898890389986
-Testing err 0.30687782168388367
+Training err 0.30960429734374695
+Testing err 0.3084416687488556
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.1966, Hit weighted by Rank: 0.2097
-MSE: 0.1875, Precision: 0.2966, Recall: 0.2966, F1: 0.2966
+Hit: 0.2016, CTR: 0.2016, Hit weighted by Rank: 0.2141
+MSE: 0.1885, Precision: 0.2954, Recall: 0.2954, F1: 0.2954
 Prediction: Negative  Positive
-||Not Read:[3837088   95350]
-||||||Read:[95350 40212]
+||Not Read:[3836074   95864]
+||||||Read:[95864 40198]
 
 User-based
-Hit recall: 0.0056, ARHR: 0.1004
-MSE: 0.1515, Precision: 0.0362, Recall: 0.0053, F1: 0.0093
+Hit recall: 0.0058, CTR: 0.0362, ARHR: 0.0934
+MSE: 0.1520, Precision: 0.0362, Recall: 0.0053, F1: 0.0093
 Prediction: Negative  Positive
-||Not Read:[3913162   19276]
-||||||Read:[134838    724]
+||Not Read:[3912661   19277]
+||||||Read:[135339    723]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0754, ARHR: 1.9625
-(Ranking) MSE: 0.1339, Precision: 0.4851, Recall: 0.0716, F1: 0.1247
-MSE: 0.3608, Precision: 0.2216, Recall: 0.6792, F1: 0.3342
+Hit recall: 0.0733, CTR: 0.4716, ARHR: 1.9213
+(Ranking) MSE: 0.1349, Precision: 0.4716, Recall: 0.0693, F1: 0.1209
+MSE: 0.3600, Precision: 0.2230, Recall: 0.6806, F1: 0.3360
 Prediction: Negative  Positive
-||Not Read:[3609035  323403]
-||||||Read:[43493 92069]
+||Not Read:[3609308  322630]
+||||||Read:[43455 92607]
 
 iter  4
-Training err 0.2817789766140891
-Testing err 0.2881166934967041
+Training err 0.2821781966526284
+Testing err 0.28865042328834534
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.1994, Hit weighted by Rank: 0.2119
-MSE: 0.1866, Precision: 0.3000, Recall: 0.3000, F1: 0.3000
+Hit: 0.2050, CTR: 0.2050, Hit weighted by Rank: 0.2176
+MSE: 0.1872, Precision: 0.3006, Recall: 0.3006, F1: 0.3006
 Prediction: Negative  Positive
-||Not Read:[3837542   94896]
-||||||Read:[94896 40666]
+||Not Read:[3836770   95168]
+||||||Read:[95168 40894]
 
 User-based
-Hit recall: 0.0066, ARHR: 0.1153
-MSE: 0.1513, Precision: 0.0419, Recall: 0.0062, F1: 0.0108
+Hit recall: 0.0069, CTR: 0.0422, ARHR: 0.1107
+MSE: 0.1518, Precision: 0.0422, Recall: 0.0062, F1: 0.0108
 Prediction: Negative  Positive
-||Not Read:[3913276   19162]
-||||||Read:[134724    838]
+||Not Read:[3912782   19156]
+||||||Read:[135218    844]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0759, ARHR: 1.9667
-(Ranking) MSE: 0.1337, Precision: 0.4891, Recall: 0.0722, F1: 0.1258
-MSE: 0.3446, Precision: 0.2279, Recall: 0.6639, F1: 0.3393
+Hit recall: 0.0738, CTR: 0.4748, ARHR: 1.9353
+(Ranking) MSE: 0.1348, Precision: 0.4748, Recall: 0.0698, F1: 0.1217
+MSE: 0.3442, Precision: 0.2286, Recall: 0.6623, F1: 0.3399
 Prediction: Negative  Positive
-||Not Read:[3627548  304890]
-||||||Read:[45563 89999]
+||Not Read:[3627828  304110]
+||||||Read:[45948 90114]
 
 iter  5
-Training err 0.2617197880292979
-Testing err 0.2767680585384369
+Training err 0.2621586220441445
+Testing err 0.2752271294593811
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2003, Hit weighted by Rank: 0.2139
-MSE: 0.1860, Precision: 0.3024, Recall: 0.3024, F1: 0.3024
+Hit: 0.2064, CTR: 0.2064, Hit weighted by Rank: 0.2201
+MSE: 0.1867, Precision: 0.3024, Recall: 0.3024, F1: 0.3024
 Prediction: Negative  Positive
-||Not Read:[3837876   94562]
-||||||Read:[94562 41000]
+||Not Read:[3837017   94921]
+||||||Read:[94921 41141]
 
 User-based
-Hit recall: 0.0074, ARHR: 0.1234
-MSE: 0.1512, Precision: 0.0456, Recall: 0.0067, F1: 0.0117
+Hit recall: 0.0076, CTR: 0.0460, ARHR: 0.1247
+MSE: 0.1516, Precision: 0.0459, Recall: 0.0068, F1: 0.0118
 Prediction: Negative  Positive
-||Not Read:[3913349   19089]
-||||||Read:[134651    911]
+||Not Read:[3912857   19081]
+||||||Read:[135143    919]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0764, ARHR: 1.9777
-(Ranking) MSE: 0.1336, Precision: 0.4930, Recall: 0.0727, F1: 0.1268
-MSE: 0.3382, Precision: 0.2308, Recall: 0.6592, F1: 0.3419
+Hit recall: 0.0746, CTR: 0.4800, ARHR: 1.9479
+(Ranking) MSE: 0.1346, Precision: 0.4799, Recall: 0.0705, F1: 0.1230
+MSE: 0.3348, Precision: 0.2327, Recall: 0.6538, F1: 0.3432
 Prediction: Negative  Positive
-||Not Read:[3634683  297755]
-||||||Read:[46201 89361]
+||Not Read:[3638545  293393]
+||||||Read:[47105 88957]
 
 iter  6
-Training err 0.2463424248553508
-Testing err 0.26663562655448914
+Training err 0.24674382154484215
+Testing err 0.26589611172676086
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2020, Hit weighted by Rank: 0.2154
-MSE: 0.1853, Precision: 0.3051, Recall: 0.3051, F1: 0.3051
+Hit: 0.2082, CTR: 0.2082, Hit weighted by Rank: 0.2208
+MSE: 0.1857, Precision: 0.3059, Recall: 0.3059, F1: 0.3059
 Prediction: Negative  Positive
-||Not Read:[3838234   94204]
-||||||Read:[94204 41358]
+||Not Read:[3837499   94439]
+||||||Read:[94439 41623]
 
 User-based
-Hit recall: 0.0078, ARHR: 0.1258
-MSE: 0.1511, Precision: 0.0476, Recall: 0.0070, F1: 0.0123
+Hit recall: 0.0082, CTR: 0.0491, ARHR: 0.1347
+MSE: 0.1515, Precision: 0.0491, Recall: 0.0072, F1: 0.0126
 Prediction: Negative  Positive
-||Not Read:[3913391   19047]
-||||||Read:[134609    953]
+||Not Read:[3912919   19019]
+||||||Read:[135081    981]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0768, ARHR: 1.9857
-(Ranking) MSE: 0.1335, Precision: 0.4949, Recall: 0.0730, F1: 0.1273
-MSE: 0.3330, Precision: 0.2331, Recall: 0.6542, F1: 0.3437
+Hit recall: 0.0749, CTR: 0.4826, ARHR: 1.9523
+(Ranking) MSE: 0.1345, Precision: 0.4826, Recall: 0.0709, F1: 0.1237
+MSE: 0.3309, Precision: 0.2344, Recall: 0.6501, F1: 0.3446
 Prediction: Negative  Positive
-||Not Read:[3640640  291798]
-||||||Read:[46882 88680]
+||Not Read:[3643001  288937]
+||||||Read:[47605 88457]
 
 iter  7
-Training err 0.2339321753872652
-Testing err 0.2567228376865387
+Training err 0.23419651805471522
+Testing err 0.2572888731956482
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2039, Hit weighted by Rank: 0.2174
-MSE: 0.1847, Precision: 0.3072, Recall: 0.3072, F1: 0.3072
+Hit: 0.2091, CTR: 0.2091, Hit weighted by Rank: 0.2221
+MSE: 0.1854, Precision: 0.3072, Recall: 0.3072, F1: 0.3072
 Prediction: Negative  Positive
-||Not Read:[3838522   93916]
-||||||Read:[93916 41646]
+||Not Read:[3837669   94269]
+||||||Read:[94269 41793]
 
 User-based
-Hit recall: 0.0082, ARHR: 0.1340
-MSE: 0.1510, Precision: 0.0494, Recall: 0.0073, F1: 0.0127
+Hit recall: 0.0083, CTR: 0.0493, ARHR: 0.1372
+MSE: 0.1515, Precision: 0.0493, Recall: 0.0072, F1: 0.0126
 Prediction: Negative  Positive
-||Not Read:[3913426   19012]
-||||||Read:[134574    988]
+||Not Read:[3912923   19015]
+||||||Read:[135077    985]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0770, ARHR: 1.9890
-(Ranking) MSE: 0.1335, Precision: 0.4957, Recall: 0.0731, F1: 0.1275
-MSE: 0.3269, Precision: 0.2358, Recall: 0.6482, F1: 0.3458
+Hit recall: 0.0752, CTR: 0.4847, ARHR: 1.9559
+(Ranking) MSE: 0.1344, Precision: 0.4847, Recall: 0.0712, F1: 0.1242
+MSE: 0.3259, Precision: 0.2367, Recall: 0.6455, F1: 0.3464
 Prediction: Negative  Positive
-||Not Read:[3647707  284731]
-||||||Read:[47696 87866]
+||Not Read:[3648761  283177]
+||||||Read:[48231 87831]
 
 iter  8
-Training err 0.2234500841963919
-Testing err 0.2503145933151245
+Training err 0.22353868800253496
+Testing err 0.24806919693946838
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2041, Hit weighted by Rank: 0.2175
-MSE: 0.1845, Precision: 0.3081, Recall: 0.3081, F1: 0.3081
+Hit: 0.2096, CTR: 0.2096, Hit weighted by Rank: 0.2225
+MSE: 0.1847, Precision: 0.3096, Recall: 0.3096, F1: 0.3096
 Prediction: Negative  Positive
-||Not Read:[3838642   93796]
-||||||Read:[93796 41766]
+||Not Read:[3837999   93939]
+||||||Read:[93939 42123]
 
 User-based
-Hit recall: 0.0085, ARHR: 0.1349
-MSE: 0.1509, Precision: 0.0512, Recall: 0.0076, F1: 0.0132
+Hit recall: 0.0087, CTR: 0.0517, ARHR: 0.1437
+MSE: 0.1514, Precision: 0.0517, Recall: 0.0076, F1: 0.0132
 Prediction: Negative  Positive
-||Not Read:[3913462   18976]
-||||||Read:[134538   1024]
+||Not Read:[3912971   18967]
+||||||Read:[135029   1033]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0769, ARHR: 1.9912
-(Ranking) MSE: 0.1335, Precision: 0.4957, Recall: 0.0731, F1: 0.1275
-MSE: 0.3252, Precision: 0.2368, Recall: 0.6478, F1: 0.3468
+Hit recall: 0.0751, CTR: 0.4838, ARHR: 1.9528
+(Ranking) MSE: 0.1344, Precision: 0.4838, Recall: 0.0711, F1: 0.1240
+MSE: 0.3196, Precision: 0.2397, Recall: 0.6393, F1: 0.3486
 Prediction: Negative  Positive
-||Not Read:[3649406  283032]
-||||||Read:[47743 87819]
+||Not Read:[3655954  275984]
+||||||Read:[49076 86986]
 
 iter  9
-Training err 0.21454366430297564
-Testing err 0.2440732717514038
+Training err 0.21484998337237704
+Testing err 0.2404756098985672
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2049, Hit weighted by Rank: 0.2185
-MSE: 0.1841, Precision: 0.3093, Recall: 0.3093, F1: 0.3093
+Hit: 0.2098, CTR: 0.2098, Hit weighted by Rank: 0.2228
+MSE: 0.1846, Precision: 0.3102, Recall: 0.3102, F1: 0.3102
 Prediction: Negative  Positive
-||Not Read:[3838810   93628]
-||||||Read:[93628 41934]
+||Not Read:[3838077   93861]
+||||||Read:[93861 42201]
 
 User-based
-Hit recall: 0.0085, ARHR: 0.1361
-MSE: 0.1510, Precision: 0.0508, Recall: 0.0075, F1: 0.0131
+Hit recall: 0.0089, CTR: 0.0527, ARHR: 0.1453
+MSE: 0.1514, Precision: 0.0527, Recall: 0.0077, F1: 0.0135
 Prediction: Negative  Positive
-||Not Read:[3913455   18983]
-||||||Read:[134545   1017]
+||Not Read:[3912992   18946]
+||||||Read:[135008   1054]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0768, ARHR: 1.9955
-(Ranking) MSE: 0.1335, Precision: 0.4955, Recall: 0.0731, F1: 0.1274
-MSE: 0.3231, Precision: 0.2380, Recall: 0.6470, F1: 0.3480
+Hit recall: 0.0754, CTR: 0.4851, ARHR: 1.9513
+(Ranking) MSE: 0.1344, Precision: 0.4852, Recall: 0.0713, F1: 0.1243
+MSE: 0.3146, Precision: 0.2419, Recall: 0.6334, F1: 0.3501
 Prediction: Negative  Positive
-||Not Read:[3651698  280740]
-||||||Read:[47854 87708]
+||Not Read:[3661879  270059]
+||||||Read:[49877 86185]
 
 iter  10
-Training err 0.20666419685109513
-Testing err 0.23494499921798706
+Training err 0.20719251279798248
+Testing err 0.23485416173934937
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2055, Hit weighted by Rank: 0.2199
-MSE: 0.1835, Precision: 0.3117, Recall: 0.3117, F1: 0.3117
+Hit: 0.2103, CTR: 0.2103, Hit weighted by Rank: 0.2243
+MSE: 0.1844, Precision: 0.3109, Recall: 0.3109, F1: 0.3109
 Prediction: Negative  Positive
-||Not Read:[3839133   93305]
-||||||Read:[93305 42257]
+||Not Read:[3838171   93767]
+||||||Read:[93767 42295]
 
 User-based
-Hit recall: 0.0088, ARHR: 0.1374
-MSE: 0.1509, Precision: 0.0524, Recall: 0.0077, F1: 0.0135
+Hit recall: 0.0090, CTR: 0.0524, ARHR: 0.1487
+MSE: 0.1514, Precision: 0.0524, Recall: 0.0077, F1: 0.0134
 Prediction: Negative  Positive
-||Not Read:[3913487   18951]
-||||||Read:[134513   1049]
+||Not Read:[3912986   18952]
+||||||Read:[135014   1048]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0758, ARHR: 1.9890
-(Ranking) MSE: 0.1337, Precision: 0.4901, Recall: 0.0723, F1: 0.1260
-MSE: 0.3145, Precision: 0.2416, Recall: 0.6358, F1: 0.3502
+Hit recall: 0.0751, CTR: 0.4844, ARHR: 1.9423
+(Ranking) MSE: 0.1344, Precision: 0.4844, Recall: 0.0712, F1: 0.1242
+MSE: 0.3117, Precision: 0.2435, Recall: 0.6316, F1: 0.3515
 Prediction: Negative  Positive
-||Not Read:[3661938  270500]
-||||||Read:[49367 86195]
+||Not Read:[3665014  266924]
+||||||Read:[50125 85937]
 
 iter  11
-Training err 0.199741111128919
-Testing err 0.2217693030834198
+Training err 0.20054794840057785
+Testing err 0.2289269119501114
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2071, Hit weighted by Rank: 0.2211
-MSE: 0.1824, Precision: 0.3158, Recall: 0.3158, F1: 0.3158
+Hit: 0.2110, CTR: 0.2110, Hit weighted by Rank: 0.2257
+MSE: 0.1840, Precision: 0.3122, Recall: 0.3122, F1: 0.3122
 Prediction: Negative  Positive
-||Not Read:[3839692   92746]
-||||||Read:[92746 42816]
+||Not Read:[3838359   93579]
+||||||Read:[93579 42483]
 
 User-based
-Hit recall: 0.0091, ARHR: 0.1429
-MSE: 0.1508, Precision: 0.0540, Recall: 0.0080, F1: 0.0139
+Hit recall: 0.0091, CTR: 0.0527, ARHR: 0.1460
+MSE: 0.1514, Precision: 0.0527, Recall: 0.0077, F1: 0.0135
 Prediction: Negative  Positive
-||Not Read:[3913518   18920]
-||||||Read:[134482   1080]
+||Not Read:[3912992   18946]
+||||||Read:[135008   1054]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0752, ARHR: 1.9788
-(Ranking) MSE: 0.1338, Precision: 0.4863, Recall: 0.0717, F1: 0.1250
-MSE: 0.2974, Precision: 0.2491, Recall: 0.6109, F1: 0.3539
+Hit recall: 0.0747, CTR: 0.4830, ARHR: 1.9363
+(Ranking) MSE: 0.1345, Precision: 0.4830, Recall: 0.0710, F1: 0.1238
+MSE: 0.3071, Precision: 0.2461, Recall: 0.6277, F1: 0.3536
 Prediction: Negative  Positive
-||Not Read:[3682748  249690]
-||||||Read:[52744 82818]
+||Not Read:[3670302  261636]
+||||||Read:[50659 85403]
 
 iter  12
-Training err 0.1941268521620242
-Testing err 0.2094232589006424
+Training err 0.19440363828786913
+Testing err 0.21859212219715118
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2078, Hit weighted by Rank: 0.2223
-MSE: 0.1818, Precision: 0.3182, Recall: 0.3182, F1: 0.3182
+Hit: 0.2120, CTR: 0.2120, Hit weighted by Rank: 0.2269
+MSE: 0.1830, Precision: 0.3162, Recall: 0.3162, F1: 0.3162
 Prediction: Negative  Positive
-||Not Read:[3840007   92431]
-||||||Read:[92431 43131]
+||Not Read:[3838893   93045]
+||||||Read:[93045 43017]
 
 User-based
-Hit recall: 0.0093, ARHR: 0.1451
-MSE: 0.1508, Precision: 0.0551, Recall: 0.0081, F1: 0.0142
+Hit recall: 0.0091, CTR: 0.0525, ARHR: 0.1455
+MSE: 0.1514, Precision: 0.0524, Recall: 0.0077, F1: 0.0134
 Prediction: Negative  Positive
-||Not Read:[3913541   18897]
-||||||Read:[134459   1103]
+||Not Read:[3912987   18951]
+||||||Read:[135013   1049]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0745, ARHR: 1.9632
-(Ranking) MSE: 0.1340, Precision: 0.4832, Recall: 0.0713, F1: 0.1242
-MSE: 0.2797, Precision: 0.2580, Recall: 0.5854, F1: 0.3582
+Hit recall: 0.0744, CTR: 0.4806, ARHR: 1.9140
+(Ranking) MSE: 0.1346, Precision: 0.4806, Recall: 0.0706, F1: 0.1232
+MSE: 0.2975, Precision: 0.2504, Recall: 0.6139, F1: 0.3557
 Prediction: Negative  Positive
-||Not Read:[3704199  228239]
-||||||Read:[56203 79359]
+||Not Read:[3681924  250014]
+||||||Read:[52538 83524]
 
 iter  13
-Training err 0.18998648827667083
-Testing err 0.20464564859867096
+Training err 0.18901877273708792
+Testing err 0.20108391344547272
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2081, Hit weighted by Rank: 0.2232
-MSE: 0.1816, Precision: 0.3186, Recall: 0.3186, F1: 0.3186
+Hit: 0.2135, CTR: 0.2135, Hit weighted by Rank: 0.2289
+MSE: 0.1819, Precision: 0.3202, Recall: 0.3202, F1: 0.3202
 Prediction: Negative  Positive
-||Not Read:[3840072   92366]
-||||||Read:[92366 43196]
+||Not Read:[3839437   92501]
+||||||Read:[92501 43561]
 
 User-based
-Hit recall: 0.0095, ARHR: 0.1487
-MSE: 0.1507, Precision: 0.0563, Recall: 0.0083, F1: 0.0145
+Hit recall: 0.0099, CTR: 0.0565, ARHR: 0.1521
+MSE: 0.1512, Precision: 0.0565, Recall: 0.0083, F1: 0.0145
 Prediction: Negative  Positive
-||Not Read:[3913563   18875]
-||||||Read:[134437   1125]
+||Not Read:[3913067   18871]
+||||||Read:[134933   1129]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0742, ARHR: 1.9671
-(Ranking) MSE: 0.1341, Precision: 0.4808, Recall: 0.0709, F1: 0.1236
-MSE: 0.2741, Precision: 0.2608, Recall: 0.5757, F1: 0.3590
+Hit recall: 0.0735, CTR: 0.4751, ARHR: 1.8821
+(Ranking) MSE: 0.1348, Precision: 0.4751, Recall: 0.0698, F1: 0.1218
+MSE: 0.2674, Precision: 0.2650, Recall: 0.5628, F1: 0.3603
 Prediction: Negative  Positive
-||Not Read:[3711212  221226]
-||||||Read:[57513 78049]
+||Not Read:[3719523  212415]
+||||||Read:[59488 76574]
 
 iter  14
-Training err 0.18629174260788672
-Testing err 0.19718612730503082
+Training err 0.18614002357130144
+Testing err 0.1922864019870758
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2085, Hit weighted by Rank: 0.2235
-MSE: 0.1810, Precision: 0.3209, Recall: 0.3209, F1: 0.3209
+Hit: 0.2135, CTR: 0.2135, Hit weighted by Rank: 0.2298
+MSE: 0.1818, Precision: 0.3205, Recall: 0.3205, F1: 0.3205
 Prediction: Negative  Positive
-||Not Read:[3840380   92058]
-||||||Read:[92058 43504]
+||Not Read:[3839478   92460]
+||||||Read:[92460 43602]
 
 User-based
-Hit recall: 0.0097, ARHR: 0.1501
-MSE: 0.1507, Precision: 0.0567, Recall: 0.0084, F1: 0.0146
+Hit recall: 0.0107, CTR: 0.0613, ARHR: 0.1612
+MSE: 0.1510, Precision: 0.0613, Recall: 0.0090, F1: 0.0157
 Prediction: Negative  Positive
-||Not Read:[3913572   18866]
-||||||Read:[134428   1134]
+||Not Read:[3913164   18774]
+||||||Read:[134836   1226]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0740, ARHR: 1.9599
-(Ranking) MSE: 0.1341, Precision: 0.4803, Recall: 0.0709, F1: 0.1235
-MSE: 0.2648, Precision: 0.2661, Recall: 0.5611, F1: 0.3610
+Hit recall: 0.0728, CTR: 0.4708, ARHR: 1.8575
+(Ranking) MSE: 0.1349, Precision: 0.4708, Recall: 0.0692, F1: 0.1207
+MSE: 0.2507, Precision: 0.2744, Recall: 0.5316, F1: 0.3620
 Prediction: Negative  Positive
-||Not Read:[3722633  209805]
-||||||Read:[59493 76069]
+||Not Read:[3740703  191235]
+||||||Read:[63726 72336]
 
 iter  15
-Training err 0.1818455960843185
-Testing err 0.18267403542995453
+Training err 0.184228322144712
+Testing err 0.18916548788547516
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2099, Hit weighted by Rank: 0.2269
-MSE: 0.1801, Precision: 0.3245, Recall: 0.3245, F1: 0.3245
+Hit: 0.2133, CTR: 0.2133, Hit weighted by Rank: 0.2287
+MSE: 0.1818, Precision: 0.3207, Recall: 0.3207, F1: 0.3207
 Prediction: Negative  Positive
-||Not Read:[3840864   91574]
-||||||Read:[91574 43988]
+||Not Read:[3839505   92433]
+||||||Read:[92433 43629]
 
 User-based
-Hit recall: 0.0104, ARHR: 0.1614
-MSE: 0.1506, Precision: 0.0611, Recall: 0.0090, F1: 0.0157
+Hit recall: 0.0107, CTR: 0.0606, ARHR: 0.1621
+MSE: 0.1511, Precision: 0.0606, Recall: 0.0089, F1: 0.0155
 Prediction: Negative  Positive
-||Not Read:[3913660   18778]
-||||||Read:[134340   1222]
+||Not Read:[3913150   18788]
+||||||Read:[134850   1212]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0733, ARHR: 1.9260
-(Ranking) MSE: 0.1343, Precision: 0.4743, Recall: 0.0700, F1: 0.1220
-MSE: 0.2322, Precision: 0.2844, Recall: 0.4896, F1: 0.3598
+Hit recall: 0.0729, CTR: 0.4723, ARHR: 1.8651
+(Ranking) MSE: 0.1349, Precision: 0.4723, Recall: 0.0694, F1: 0.1211
+MSE: 0.2479, Precision: 0.2765, Recall: 0.5275, F1: 0.3628
 Prediction: Negative  Positive
-||Not Read:[3765450  166988]
-||||||Read:[69187 66375]
+||Not Read:[3744136  187802]
+||||||Read:[64284 71778]
 
 iter  16
-Training err 0.1789894128912392
-Testing err 0.1711006909608841
+Training err 0.1816783446409306
+Testing err 0.17653244733810425
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2101, Hit weighted by Rank: 0.2289
-MSE: 0.1804, Precision: 0.3232, Recall: 0.3232, F1: 0.3232
+Hit: 0.2146, CTR: 0.2146, Hit weighted by Rank: 0.2303
+MSE: 0.1809, Precision: 0.3239, Recall: 0.3239, F1: 0.3239
 Prediction: Negative  Positive
-||Not Read:[3840693   91745]
-||||||Read:[91745 43817]
+||Not Read:[3839947   91991]
+||||||Read:[91991 44071]
 
 User-based
-Hit recall: 0.0117, ARHR: 0.1817
-MSE: 0.1503, Precision: 0.0685, Recall: 0.0101, F1: 0.0176
+Hit recall: 0.0115, CTR: 0.0649, ARHR: 0.1697
+MSE: 0.1509, Precision: 0.0649, Recall: 0.0095, F1: 0.0166
 Prediction: Negative  Positive
-||Not Read:[3913809   18629]
-||||||Read:[134191   1371]
+||Not Read:[3913236   18702]
+||||||Read:[134764   1298]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0720, ARHR: 1.8979
-(Ranking) MSE: 0.1346, Precision: 0.4667, Recall: 0.0689, F1: 0.1200
-MSE: 0.2064, Precision: 0.3016, Recall: 0.4168, F1: 0.3500
+Hit recall: 0.0718, CTR: 0.4661, ARHR: 1.8423
+(Ranking) MSE: 0.1351, Precision: 0.4661, Recall: 0.0685, F1: 0.1195
+MSE: 0.2198, Precision: 0.2953, Recall: 0.4633, F1: 0.3607
 Prediction: Negative  Positive
-||Not Read:[3801624  130814]
-||||||Read:[79059 56503]
+||Not Read:[3781468  150470]
+||||||Read:[73021 63041]
 
 iter  17
-Training err 0.17972373263763977
-Testing err 0.16665206849575043
+Training err 0.1776652953385393
+Testing err 0.16642437875270844
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2101, Hit weighted by Rank: 0.2277
-MSE: 0.1803, Precision: 0.3238, Recall: 0.3238, F1: 0.3238
+Hit: 0.2144, CTR: 0.2144, Hit weighted by Rank: 0.2316
+MSE: 0.1809, Precision: 0.3239, Recall: 0.3239, F1: 0.3239
 Prediction: Negative  Positive
-||Not Read:[3840776   91662]
-||||||Read:[91662 43900]
+||Not Read:[3839947   91991]
+||||||Read:[91991 44071]
 
 User-based
-Hit recall: 0.0122, ARHR: 0.1916
-MSE: 0.1502, Precision: 0.0713, Recall: 0.0105, F1: 0.0183
+Hit recall: 0.0127, CTR: 0.0717, ARHR: 0.1855
+MSE: 0.1506, Precision: 0.0717, Recall: 0.0105, F1: 0.0184
 Prediction: Negative  Positive
-||Not Read:[3913864   18574]
-||||||Read:[134136   1426]
+||Not Read:[3913373   18565]
+||||||Read:[134627   1435]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0730, ARHR: 1.9071
-(Ranking) MSE: 0.1344, Precision: 0.4723, Recall: 0.0697, F1: 0.1214
-MSE: 0.2006, Precision: 0.3083, Recall: 0.4057, F1: 0.3503
+Hit recall: 0.0715, CTR: 0.4616, ARHR: 1.8227
+(Ranking) MSE: 0.1353, Precision: 0.4616, Recall: 0.0679, F1: 0.1183
+MSE: 0.1995, Precision: 0.3103, Recall: 0.4017, F1: 0.3501
 Prediction: Negative  Positive
-||Not Read:[3809006  123432]
-||||||Read:[80559 55003]
+||Not Read:[3810467  121471]
+||||||Read:[81412 54650]
 
 iter  18
-Training err 0.17991960091068288
-Testing err 0.16594626009464264
+Training err 0.17613729766354774
+Testing err 0.16410666704177856
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2107, Hit weighted by Rank: 0.2280
-MSE: 0.1801, Precision: 0.3245, Recall: 0.3245, F1: 0.3245
+Hit: 0.2144, CTR: 0.2144, Hit weighted by Rank: 0.2317
+MSE: 0.1809, Precision: 0.3239, Recall: 0.3239, F1: 0.3239
 Prediction: Negative  Positive
-||Not Read:[3840867   91571]
-||||||Read:[91571 43991]
+||Not Read:[3839945   91993]
+||||||Read:[91993 44069]
 
 User-based
-Hit recall: 0.0123, ARHR: 0.1945
-MSE: 0.1501, Precision: 0.0725, Recall: 0.0107, F1: 0.0186
+Hit recall: 0.0128, CTR: 0.0730, ARHR: 0.1886
+MSE: 0.1506, Precision: 0.0730, Recall: 0.0107, F1: 0.0187
 Prediction: Negative  Positive
-||Not Read:[3913888   18550]
-||||||Read:[134112   1450]
+||Not Read:[3913398   18540]
+||||||Read:[134602   1460]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0744, ARHR: 1.9367
-(Ranking) MSE: 0.1340, Precision: 0.4813, Recall: 0.0710, F1: 0.1238
-MSE: 0.2059, Precision: 0.3048, Recall: 0.4254, F1: 0.3552
+Hit recall: 0.0722, CTR: 0.4684, ARHR: 1.8563
+(Ranking) MSE: 0.1350, Precision: 0.4683, Recall: 0.0688, F1: 0.1200
+MSE: 0.1986, Precision: 0.3120, Recall: 0.4022, F1: 0.3514
 Prediction: Negative  Positive
-||Not Read:[3800945  131493]
-||||||Read:[77899 57663]
+||Not Read:[3811281  120657]
+||||||Read:[81343 54719]
 
 iter  19
-Training err 0.1807438309030584
-Testing err 0.17587769031524658
+Training err 0.1762844528040099
+Testing err 0.16570760309696198
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2096, Hit weighted by Rank: 0.2264
-MSE: 0.1807, Precision: 0.3222, Recall: 0.3222, F1: 0.3222
+Hit: 0.2146, CTR: 0.2146, Hit weighted by Rank: 0.2316
+MSE: 0.1810, Precision: 0.3236, Recall: 0.3236, F1: 0.3236
 Prediction: Negative  Positive
-||Not Read:[3840552   91886]
-||||||Read:[91886 43676]
+||Not Read:[3839901   92037]
+||||||Read:[92037 44025]
 
 User-based
-Hit recall: 0.0118, ARHR: 0.1924
-MSE: 0.1502, Precision: 0.0703, Recall: 0.0104, F1: 0.0181
+Hit recall: 0.0129, CTR: 0.0733, ARHR: 0.1868
+MSE: 0.1506, Precision: 0.0733, Recall: 0.0108, F1: 0.0188
 Prediction: Negative  Positive
-||Not Read:[3913844   18594]
-||||||Read:[134156   1406]
+||Not Read:[3913404   18534]
+||||||Read:[134596   1466]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0772, ARHR: 1.9949
-(Ranking) MSE: 0.1334, Precision: 0.4981, Recall: 0.0735, F1: 0.1281
-MSE: 0.2325, Precision: 0.2856, Recall: 0.4959, F1: 0.3625
+Hit recall: 0.0736, CTR: 0.4775, ARHR: 1.9140
+(Ranking) MSE: 0.1347, Precision: 0.4774, Recall: 0.0702, F1: 0.1224
+MSE: 0.2106, Precision: 0.3027, Recall: 0.4405, F1: 0.3588
 Prediction: Negative  Positive
-||Not Read:[3764318  168120]
-||||||Read:[68341 67221]
+||Not Read:[3793873  138065]
+||||||Read:[76126 59936]
 
 iter  20
-Training err 0.17885165734278075
-Testing err 0.19050000607967377
+Training err 0.17785009584585848
+Testing err 0.17638050019741058
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2075, Hit weighted by Rank: 0.2224
-MSE: 0.1819, Precision: 0.3176, Recall: 0.3176, F1: 0.3176
+Hit: 0.2141, CTR: 0.2141, Hit weighted by Rank: 0.2304
+MSE: 0.1819, Precision: 0.3203, Recall: 0.3203, F1: 0.3203
 Prediction: Negative  Positive
-||Not Read:[3839932   92506]
-||||||Read:[92506 43056]
+||Not Read:[3839460   92478]
+||||||Read:[92478 43584]
 
 User-based
-Hit recall: 0.0106, ARHR: 0.1737
-MSE: 0.1504, Precision: 0.0639, Recall: 0.0094, F1: 0.0164
+Hit recall: 0.0121, CTR: 0.0691, ARHR: 0.1781
+MSE: 0.1507, Precision: 0.0691, Recall: 0.0102, F1: 0.0177
 Prediction: Negative  Positive
-||Not Read:[3913716   18722]
-||||||Read:[134284   1278]
+||Not Read:[3913320   18618]
+||||||Read:[134680   1382]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0788, ARHR: 2.0419
-(Ranking) MSE: 0.1330, Precision: 0.5077, Recall: 0.0749, F1: 0.1305
-MSE: 0.2644, Precision: 0.2673, Recall: 0.5649, F1: 0.3629
+Hit recall: 0.0760, CTR: 0.4918, ARHR: 1.9659
+(Ranking) MSE: 0.1341, Precision: 0.4918, Recall: 0.0723, F1: 0.1261
+MSE: 0.2368, Precision: 0.2852, Recall: 0.5109, F1: 0.3660
 Prediction: Negative  Positive
-||Not Read:[3722497  209941]
-||||||Read:[58984 76578]
+||Not Read:[3757688  174250]
+||||||Read:[66547 69515]
 
 iter  21
-Training err 0.17169338870726222
-Testing err 0.1969774067401886
+Training err 0.17523844825776014
+Testing err 0.19113488495349884
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2080, Hit weighted by Rank: 0.2231
-MSE: 0.1822, Precision: 0.3166, Recall: 0.3166, F1: 0.3166
+Hit: 0.2139, CTR: 0.2139, Hit weighted by Rank: 0.2286
+MSE: 0.1826, Precision: 0.3177, Recall: 0.3177, F1: 0.3177
 Prediction: Negative  Positive
-||Not Read:[3839800   92638]
-||||||Read:[92638 42924]
+||Not Read:[3839109   92829]
+||||||Read:[92829 43233]
 
 User-based
-Hit recall: 0.0103, ARHR: 0.1618
-MSE: 0.1506, Precision: 0.0602, Recall: 0.0089, F1: 0.0155
+Hit recall: 0.0114, CTR: 0.0651, ARHR: 0.1703
+MSE: 0.1509, Precision: 0.0651, Recall: 0.0096, F1: 0.0167
 Prediction: Negative  Positive
-||Not Read:[3913643   18795]
-||||||Read:[134357   1205]
+||Not Read:[3913240   18698]
+||||||Read:[134760   1302]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0785, ARHR: 2.0431
-(Ranking) MSE: 0.1330, Precision: 0.5064, Recall: 0.0747, F1: 0.1302
-MSE: 0.2819, Precision: 0.2587, Recall: 0.5976, F1: 0.3611
+Hit recall: 0.0772, CTR: 0.4988, ARHR: 1.9957
+(Ranking) MSE: 0.1338, Precision: 0.4988, Recall: 0.0733, F1: 0.1278
+MSE: 0.2672, Precision: 0.2667, Recall: 0.5699, F1: 0.3633
 Prediction: Negative  Positive
-||Not Read:[3700324  232114]
-||||||Read:[54547 81015]
+||Not Read:[3718707  213231]
+||||||Read:[58519 77543]
 
 iter  22
-Training err 0.16550548009811636
-Testing err 0.19227539002895355
+Training err 0.1689182057253337
+Testing err 0.19630050659179688
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2096, Hit weighted by Rank: 0.2240
-MSE: 0.1812, Precision: 0.3203, Recall: 0.3203, F1: 0.3203
+Hit: 0.2130, CTR: 0.2130, Hit weighted by Rank: 0.2272
+MSE: 0.1830, Precision: 0.3159, Recall: 0.3159, F1: 0.3159
 Prediction: Negative  Positive
-||Not Read:[3840292   92146]
-||||||Read:[92146 43416]
+||Not Read:[3838860   93078]
+||||||Read:[93078 42984]
 
 User-based
-Hit recall: 0.0101, ARHR: 0.1589
-MSE: 0.1506, Precision: 0.0588, Recall: 0.0087, F1: 0.0151
+Hit recall: 0.0103, CTR: 0.0585, ARHR: 0.1534
+MSE: 0.1512, Precision: 0.0585, Recall: 0.0086, F1: 0.0150
 Prediction: Negative  Positive
-||Not Read:[3913614   18824]
-||||||Read:[134386   1176]
+||Not Read:[3913107   18831]
+||||||Read:[134893   1169]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0779, ARHR: 2.0312
-(Ranking) MSE: 0.1332, Precision: 0.5030, Recall: 0.0742, F1: 0.1293
-MSE: 0.2847, Precision: 0.2573, Recall: 0.6018, F1: 0.3604
+Hit recall: 0.0774, CTR: 0.5005, ARHR: 1.9981
+(Ranking) MSE: 0.1338, Precision: 0.5005, Recall: 0.0736, F1: 0.1283
+MSE: 0.2826, Precision: 0.2589, Recall: 0.5970, F1: 0.3612
 Prediction: Negative  Positive
-||Not Read:[3696895  235543]
-||||||Read:[53980 81582]
+||Not Read:[3699419  232519]
+||||||Read:[54838 81224]
 
 iter  23
-Training err 0.1597511672741388
-Testing err 0.17781943082809448
+Training err 0.1625912998138148
+Testing err 0.18711170554161072
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2105, Hit weighted by Rank: 0.2261
-MSE: 0.1805, Precision: 0.3229, Recall: 0.3229, F1: 0.3229
+Hit: 0.2135, CTR: 0.2135, Hit weighted by Rank: 0.2283
+MSE: 0.1820, Precision: 0.3200, Recall: 0.3200, F1: 0.3200
 Prediction: Negative  Positive
-||Not Read:[3840643   91795]
-||||||Read:[91795 43767]
+||Not Read:[3839415   92523]
+||||||Read:[92523 43539]
 
 User-based
-Hit recall: 0.0102, ARHR: 0.1603
-MSE: 0.1506, Precision: 0.0589, Recall: 0.0087, F1: 0.0151
+Hit recall: 0.0103, CTR: 0.0580, ARHR: 0.1531
+MSE: 0.1512, Precision: 0.0580, Recall: 0.0085, F1: 0.0149
 Prediction: Negative  Positive
-||Not Read:[3913616   18822]
-||||||Read:[134384   1178]
+||Not Read:[3913098   18840]
+||||||Read:[134902   1160]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0767, ARHR: 2.0128
-(Ranking) MSE: 0.1334, Precision: 0.4966, Recall: 0.0733, F1: 0.1277
-MSE: 0.2652, Precision: 0.2678, Recall: 0.5709, F1: 0.3646
+Hit recall: 0.0766, CTR: 0.4968, ARHR: 1.9700
+(Ranking) MSE: 0.1339, Precision: 0.4968, Recall: 0.0730, F1: 0.1273
+MSE: 0.2777, Precision: 0.2617, Recall: 0.5904, F1: 0.3627
 Prediction: Negative  Positive
-||Not Read:[3720881  211557]
-||||||Read:[58168 77394]
+||Not Read:[3705282  226656]
+||||||Read:[55725 80337]
 
 iter  24
-Training err 0.15526814849420492
-Testing err 0.16445167362689972
+Training err 0.15696772653938992
+Testing err 0.17112058401107788
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2114, Hit weighted by Rank: 0.2261
-MSE: 0.1796, Precision: 0.3263, Recall: 0.3263, F1: 0.3263
+Hit: 0.2141, CTR: 0.2141, Hit weighted by Rank: 0.2291
+MSE: 0.1808, Precision: 0.3242, Recall: 0.3242, F1: 0.3242
 Prediction: Negative  Positive
-||Not Read:[3841109   91329]
-||||||Read:[91329 44233]
+||Not Read:[3839991   91947]
+||||||Read:[91947 44115]
 
 User-based
-Hit recall: 0.0109, ARHR: 0.1671
-MSE: 0.1505, Precision: 0.0628, Recall: 0.0093, F1: 0.0161
+Hit recall: 0.0105, CTR: 0.0593, ARHR: 0.1528
+MSE: 0.1511, Precision: 0.0592, Recall: 0.0087, F1: 0.0152
 Prediction: Negative  Positive
-||Not Read:[3913693   18745]
-||||||Read:[134307   1255]
+||Not Read:[3913123   18815]
+||||||Read:[134877   1185]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0758, ARHR: 1.9926
-(Ranking) MSE: 0.1336, Precision: 0.4914, Recall: 0.0725, F1: 0.1264
-MSE: 0.2365, Precision: 0.2858, Recall: 0.5166, F1: 0.3680
+Hit recall: 0.0756, CTR: 0.4908, ARHR: 1.9419
+(Ranking) MSE: 0.1342, Precision: 0.4908, Recall: 0.0721, F1: 0.1258
+MSE: 0.2511, Precision: 0.2774, Recall: 0.5461, F1: 0.3679
 Prediction: Negative  Positive
-||Not Read:[3757400  175038]
-||||||Read:[65528 70034]
+||Not Read:[3738357  193581]
+||||||Read:[61756 74306]
 
 iter  25
-Training err 0.1521074161191219
-Testing err 0.1580897867679596
+Training err 0.15327695579965067
+Testing err 0.16031335294246674
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2112, Hit weighted by Rank: 0.2289
-MSE: 0.1800, Precision: 0.3249, Recall: 0.3249, F1: 0.3249
+Hit: 0.2149, CTR: 0.2149, Hit weighted by Rank: 0.2310
+MSE: 0.1806, Precision: 0.3251, Recall: 0.3251, F1: 0.3251
 Prediction: Negative  Positive
-||Not Read:[3840919   91519]
-||||||Read:[91519 44043]
+||Not Read:[3840111   91827]
+||||||Read:[91827 44235]
 
 User-based
-Hit recall: 0.0115, ARHR: 0.1728
-MSE: 0.1504, Precision: 0.0661, Recall: 0.0098, F1: 0.0170
+Hit recall: 0.0111, CTR: 0.0622, ARHR: 0.1592
+MSE: 0.1510, Precision: 0.0622, Recall: 0.0091, F1: 0.0159
 Prediction: Negative  Positive
-||Not Read:[3913760   18678]
-||||||Read:[134240   1322]
+||Not Read:[3913182   18756]
+||||||Read:[134818   1244]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0757, ARHR: 1.9770
-(Ranking) MSE: 0.1337, Precision: 0.4905, Recall: 0.0724, F1: 0.1261
-MSE: 0.2185, Precision: 0.2981, Recall: 0.4720, F1: 0.3654
+Hit recall: 0.0748, CTR: 0.4858, ARHR: 1.9176
+(Ranking) MSE: 0.1343, Precision: 0.4858, Recall: 0.0714, F1: 0.1245
+MSE: 0.2282, Precision: 0.2925, Recall: 0.4972, F1: 0.3683
 Prediction: Negative  Positive
-||Not Read:[3781781  150657]
-||||||Read:[71575 63987]
+||Not Read:[3768291  163647]
+||||||Read:[68413 67649]
 
 iter  26
-Training err 0.15054278206460928
-Testing err 0.15501324832439423
+Training err 0.15072134693457787
+Testing err 0.15490399301052094
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2109, Hit weighted by Rank: 0.2281
-MSE: 0.1804, Precision: 0.3235, Recall: 0.3235, F1: 0.3235
+Hit: 0.2145, CTR: 0.2145, Hit weighted by Rank: 0.2310
+MSE: 0.1808, Precision: 0.3242, Recall: 0.3242, F1: 0.3242
 Prediction: Negative  Positive
-||Not Read:[3840724   91714]
-||||||Read:[91714 43848]
+||Not Read:[3839983   91955]
+||||||Read:[91955 44107]
 
 User-based
-Hit recall: 0.0116, ARHR: 0.1780
-MSE: 0.1504, Precision: 0.0664, Recall: 0.0098, F1: 0.0171
+Hit recall: 0.0113, CTR: 0.0635, ARHR: 0.1623
+MSE: 0.1510, Precision: 0.0635, Recall: 0.0093, F1: 0.0163
 Prediction: Negative  Positive
-||Not Read:[3913766   18672]
-||||||Read:[134234   1328]
+||Not Read:[3913207   18731]
+||||||Read:[134793   1269]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0758, ARHR: 1.9768
-(Ranking) MSE: 0.1337, Precision: 0.4903, Recall: 0.0723, F1: 0.1261
-MSE: 0.2117, Precision: 0.3028, Recall: 0.4514, F1: 0.3624
+Hit recall: 0.0744, CTR: 0.4829, ARHR: 1.9115
+(Ranking) MSE: 0.1345, Precision: 0.4829, Recall: 0.0710, F1: 0.1238
+MSE: 0.2147, Precision: 0.3024, Recall: 0.4628, F1: 0.3658
 Prediction: Negative  Positive
-||Not Read:[3791520  140918]
-||||||Read:[74367 61195]
+||Not Read:[3786630  145308]
+||||||Read:[73086 62976]
 
 iter  27
-Training err 0.14877908380552776
-Testing err 0.1535106599330902
+Training err 0.14881471607617378
+Testing err 0.1526467651128769
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2104, Hit weighted by Rank: 0.2274
-MSE: 0.1807, Precision: 0.3223, Recall: 0.3223, F1: 0.3223
+Hit: 0.2142, CTR: 0.2142, Hit weighted by Rank: 0.2306
+MSE: 0.1812, Precision: 0.3228, Recall: 0.3228, F1: 0.3228
 Prediction: Negative  Positive
-||Not Read:[3840567   91871]
-||||||Read:[91871 43691]
+||Not Read:[3839801   92137]
+||||||Read:[92137 43925]
 
 User-based
-Hit recall: 0.0117, ARHR: 0.1779
-MSE: 0.1503, Precision: 0.0675, Recall: 0.0100, F1: 0.0174
+Hit recall: 0.0117, CTR: 0.0653, ARHR: 0.1696
+MSE: 0.1509, Precision: 0.0653, Recall: 0.0096, F1: 0.0167
 Prediction: Negative  Positive
-||Not Read:[3913789   18649]
-||||||Read:[134211   1351]
+||Not Read:[3913244   18694]
+||||||Read:[134756   1306]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0760, ARHR: 1.9805
-(Ranking) MSE: 0.1336, Precision: 0.4916, Recall: 0.0725, F1: 0.1264
-MSE: 0.2114, Precision: 0.3030, Recall: 0.4507, F1: 0.3624
+Hit recall: 0.0745, CTR: 0.4836, ARHR: 1.9182
+(Ranking) MSE: 0.1344, Precision: 0.4835, Recall: 0.0711, F1: 0.1239
+MSE: 0.2109, Precision: 0.3052, Recall: 0.4514, F1: 0.3642
 Prediction: Negative  Positive
-||Not Read:[3791882  140556]
-||||||Read:[74465 61097]
+||Not Read:[3792141  139797]
+||||||Read:[74644 61418]
 
 iter  28
-Training err 0.14714046884782073
-Testing err 0.15319642424583435
+Training err 0.14715803012657477
+Testing err 0.15179210901260376
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2099, Hit weighted by Rank: 0.2267
-MSE: 0.1806, Precision: 0.3226, Recall: 0.3226, F1: 0.3226
+Hit: 0.2146, CTR: 0.2146, Hit weighted by Rank: 0.2309
+MSE: 0.1813, Precision: 0.3224, Recall: 0.3224, F1: 0.3224
 Prediction: Negative  Positive
-||Not Read:[3840607   91831]
-||||||Read:[91831 43731]
+||Not Read:[3839742   92196]
+||||||Read:[92196 43866]
 
 User-based
-Hit recall: 0.0114, ARHR: 0.1751
-MSE: 0.1504, Precision: 0.0663, Recall: 0.0098, F1: 0.0170
+Hit recall: 0.0118, CTR: 0.0658, ARHR: 0.1690
+MSE: 0.1509, Precision: 0.0658, Recall: 0.0097, F1: 0.0169
 Prediction: Negative  Positive
-||Not Read:[3913764   18674]
-||||||Read:[134236   1326]
+||Not Read:[3913254   18684]
+||||||Read:[134746   1316]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0764, ARHR: 1.9906
-(Ranking) MSE: 0.1335, Precision: 0.4939, Recall: 0.0729, F1: 0.1270
-MSE: 0.2166, Precision: 0.2991, Recall: 0.4653, F1: 0.3641
+Hit recall: 0.0748, CTR: 0.4856, ARHR: 1.9282
+(Ranking) MSE: 0.1344, Precision: 0.4857, Recall: 0.0714, F1: 0.1245
+MSE: 0.2120, Precision: 0.3042, Recall: 0.4541, F1: 0.3643
 Prediction: Negative  Positive
-||Not Read:[3784647  147791]
-||||||Read:[72487 63075]
+||Not Read:[3790644  141294]
+||||||Read:[74280 61782]
 
 iter  29
-Training err 0.14516371704854727
-Testing err 0.15368174016475677
+Training err 0.1455883564359403
+Testing err 0.15175442397594452
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2110, Hit weighted by Rank: 0.2277
-MSE: 0.1804, Precision: 0.3233, Recall: 0.3233, F1: 0.3233
+Hit: 0.2142, CTR: 0.2142, Hit weighted by Rank: 0.2312
+MSE: 0.1814, Precision: 0.3221, Recall: 0.3221, F1: 0.3221
 Prediction: Negative  Positive
-||Not Read:[3840699   91739]
-||||||Read:[91739 43823]
+||Not Read:[3839698   92240]
+||||||Read:[92240 43822]
 
 User-based
-Hit recall: 0.0114, ARHR: 0.1736
-MSE: 0.1504, Precision: 0.0661, Recall: 0.0098, F1: 0.0170
+Hit recall: 0.0119, CTR: 0.0663, ARHR: 0.1747
+MSE: 0.1508, Precision: 0.0663, Recall: 0.0097, F1: 0.0170
 Prediction: Negative  Positive
-||Not Read:[3913760   18678]
-||||||Read:[134240   1322]
+||Not Read:[3913264   18674]
+||||||Read:[134736   1326]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0765, ARHR: 1.9932
-(Ranking) MSE: 0.1335, Precision: 0.4950, Recall: 0.0730, F1: 0.1273
-MSE: 0.2224, Precision: 0.2950, Recall: 0.4808, F1: 0.3656
+Hit recall: 0.0752, CTR: 0.4879, ARHR: 1.9337
+(Ranking) MSE: 0.1343, Precision: 0.4879, Recall: 0.0717, F1: 0.1250
+MSE: 0.2165, Precision: 0.3007, Recall: 0.4662, F1: 0.3656
 Prediction: Negative  Positive
-||Not Read:[3776652  155786]
-||||||Read:[70384 65178]
+||Not Read:[3784425  147513]
+||||||Read:[72625 63437]
 
 iter  30
-Training err 0.14403095272583477
-Testing err 0.15447309613227844
+Training err 0.14398986076439713
+Testing err 0.1524086594581604
 
 Evaluation Scores:
 
 Item-based
-Hit: 0.2113, Hit weighted by Rank: 0.2282
-MSE: 0.1801, Precision: 0.3245, Recall: 0.3245, F1: 0.3245
+Hit: 0.2141, CTR: 0.2141, Hit weighted by Rank: 0.2310
+MSE: 0.1813, Precision: 0.3224, Recall: 0.3224, F1: 0.3224
 Prediction: Negative  Positive
-||Not Read:[3840869   91569]
-||||||Read:[91569 43993]
+||Not Read:[3839740   92198]
+||||||Read:[92198 43864]
 
 User-based
-Hit recall: 0.0111, ARHR: 0.1713
-MSE: 0.1504, Precision: 0.0649, Recall: 0.0096, F1: 0.0167
+Hit recall: 0.0117, CTR: 0.0654, ARHR: 0.1721
+MSE: 0.1509, Precision: 0.0654, Recall: 0.0096, F1: 0.0167
 Prediction: Negative  Positive
-||Not Read:[3913736   18702]
-||||||Read:[134264   1298]
+||Not Read:[3913245   18693]
+||||||Read:[134755   1307]
 
 Hidden embedding with nearest algorithm
-Hit recall: 0.0764, ARHR: 1.9965
-(Ranking) MSE: 0.1335, Precision: 0.4951, Recall: 0.0731, F1: 0.1273
-MSE: 0.2314, Precision: 0.2885, Recall: 0.5023, F1: 0.3665
+Hit recall: 0.0754, CTR: 0.4890, ARHR: 1.9404
+(Ranking) MSE: 0.1342, Precision: 0.4890, Recall: 0.0719, F1: 0.1253
+MSE: 0.2239, Precision: 0.2953, Recall: 0.4862, F1: 0.3674
 Prediction: Negative  Positive
-||Not Read:[3764532  167906]
-||||||Read:[67475 68087]
+||Not Read:[3774095  157843]
+||||||Read:[69914 66148]
